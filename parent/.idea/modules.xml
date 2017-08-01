@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/parent.iml" filepath="$PROJECT_DIR$/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-1010bao-web/rdbao-1010bao-web.iml" filepath="$PROJECT_DIR$/../rdbao-1010bao-web/rdbao-1010bao-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-app/rdbao-app.iml" filepath="$PROJECT_DIR$/../rdbao-app/rdbao-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-bean/rdbao-bean.iml" filepath="$PROJECT_DIR$/../rdbao-bean/rdbao-bean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-cache/rdbao-cache.iml" filepath="$PROJECT_DIR$/../rdbao-cache/rdbao-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-cache-api/rdbao-cache-api.iml" filepath="$PROJECT_DIR$/../rdbao-cache-api/rdbao-cache-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-center-mns-consumer/rdbao-center-mns-consumer.iml" filepath="$PROJECT_DIR$/../rdbao-center-mns-consumer/rdbao-center-mns-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-chinatelecom-web/rdbao-chinatelecom-web.iml" filepath="$PROJECT_DIR$/../rdbao-chinatelecom-web/rdbao-chinatelecom-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-config/rdbao-config.iml" filepath="$PROJECT_DIR$/../rdbao-config/rdbao-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-config-integration/rdbao-config-integration.iml" filepath="$PROJECT_DIR$/../rdbao-config-integration/rdbao-config-integration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-handle/rdbao-handle.iml" filepath="$PROJECT_DIR$/../rdbao-handle/rdbao-handle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-manage/rdbao-manage.iml" filepath="$PROJECT_DIR$/../rdbao-manage/rdbao-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-notice-consumer/rdbao-notice-consumer.iml" filepath="$PROJECT_DIR$/../rdbao-notice-consumer/rdbao-notice-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-persistence/rdbao-persistence.iml" filepath="$PROJECT_DIR$/../rdbao-persistence/rdbao-persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-persistence-api/rdbao-persistence-api.iml" filepath="$PROJECT_DIR$/../rdbao-persistence-api/rdbao-persistence-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-record-web/rdbao-record-web.iml" filepath="$PROJECT_DIR$/../rdbao-record-web/rdbao-record-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-service/rdbao-service.iml" filepath="$PROJECT_DIR$/../rdbao-service/rdbao-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-service-api/rdbao-service-api.iml" filepath="$PROJECT_DIR$/../rdbao-service-api/rdbao-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-spe-ws-client/rdbao-spe-ws-client.iml" filepath="$PROJECT_DIR$/../rdbao-spe-ws-client/rdbao-spe-ws-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-util/rdbao-util.iml" filepath="$PROJECT_DIR$/../rdbao-util/rdbao-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rdbao-web/rdbao-web.iml" filepath="$PROJECT_DIR$/../rdbao-web/rdbao-web.iml" />
+    </modules>
+  </component>
+</project>

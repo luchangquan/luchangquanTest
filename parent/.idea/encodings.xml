@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-1010bao-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-bean" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-cache" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-cache-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-center-mns-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-chinatelecom-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-config-integration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-handle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-manage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-notice-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-persistence-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-record-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-spe-ws-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../rdbao-web" charset="UTF-8" />
+  </component>
+</project>

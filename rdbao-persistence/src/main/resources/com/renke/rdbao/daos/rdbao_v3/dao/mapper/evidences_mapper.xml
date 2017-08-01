@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.renke.rdbao.daos.rdbao_v3.dao.mapper.IEvidencesMapper">
+	<resultMap id="BaseResultMap" type="com.renke.rdbao.beans.rdbao_v3.pojo.Evidences">
+		<!-- WARNING - @mbggenerated -->
+	</resultMap>
+
+	<select id="getTotalVoiceStatistics"
+		resultType="com.renke.rdbao.beans.rdbao_v3.vo.TotalVoiceStatisticsVo">
+		<![CDATA[ 
+			SELECT
+				efv.CallType callType,
+				count(1) count,
+				sum(efv.Duration) countDuration
+			FROM
+				Evidences e,
+				EvidenceFaxVoices efv
+			WHERE
+				e.Category_Id = 5 and e.Deleted = 0
+			AND e.User_Id IN 
+		]]>
+		<foreach collection="userIds" item="userId" open=" ( " close=" ) "
+			separator=" , ">
+				<![CDATA[  #{userId} ]]>
+		</foreach>
+			<![CDATA[  
+				AND e.Id = efv.Evidence_Id
+			 ]]>
+		<if test="startTime != null and startTime != '' ">
+			 	<![CDATA[ 
+				 	AND e.CreateTime >= str_to_date(
+						#{startTime},
+						'%Y-%m-%d %H:%i:%s'
+					)
+				 ]]>
+		</if>
+		<if test="endTime != null and endTime != '' ">
+					<![CDATA[ 
+						AND e.CreateTime <= str_to_date(
+							#{endTime},
+							'%Y-%m-%d %H:%i:%s'
+						)
+					 ]]>
+		</if>
+			<![CDATA[  	
+				GROUP BY
+					efv.CallType
+			 ]]>
+	</select>
+
+
+	<select id="getVoiceTotalTimeStatistics" resultType="map">
+		SELECT
+		crr.showName '姓名',
+		IFNULL(crr.sumAll, 0) '总通话时长',
+		crr.sumCalled
+		'拨入电话总时长',
+		crr.countCalled '拨入电话总个数',
+		IF (
+	<![CDATA[   crr.countCalled < 1  ]]>,
+		0,
+		CAST(
+		crr.sumCalled / crr.countCalled AS signed
+		)
+		) '拨入电话平均时长',
+		crr.sumCalling '拨出电话总时长',
+		crr.countCalling '拨出电话总个数',
+
+		IF (
+	<![CDATA[ crr.countCalling < 1 ]]>,
+		0,
+		CAST(
+		crr.sumCalling / crr.countCalling AS signed
+		)
+		) '拨出话平均时长'
+		FROM
+		(
+		SELECT
+		rr.showName,
+		SUM(rr.duration) sumAll,
+		IFNULL(
+		SUM(
+
+		IF (
+		rr.CallType =
+		'2',
+		rr.duration,
+		0
+		)
+		),
+		0
+		) sumCalled,
+		IFNULL(
+		SUM(IF(rr.CallType = '2', 1,
+		0)),
+		0
+		) countCalled,
+		IFNULL(
+		SUM(
+
+		IF (
+		rr.CallType = '1',
+		rr.duration,
+		0
+		)
+		),
+		0
+		) sumCalling,
+		IFNULL(
+		SUM(IF(rr.CallType = '1', 1, 0)),
+		0
+		) countCalling
+		FROM
+		(
+		SELECT
+
+		IF (
+		u.nickname IS NULL,
+		u.phone_no,
+
+		IF (
+		u.nickname = '',
+		u.phone_no,
+		u.nickname
+		)
+		) showName,
+		efv.Duration duration,
+		efv.CallType,
+		u.create_time createTime
+		FROM
+		EvidenceFaxVoices efv
+		INNER JOIN (
+		SELECT
+		e.*
+		FROM
+		Evidences e
+		WHERE
+		e.CreateTime >= str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+				<![CDATA[  AND e.CreateTime <= str_to_date(
+					#{endTime},
+					'%Y-%m-%d %H:%i:%s'
+				)
+				]]>
+		AND e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+		AND e.Category_Id = '5' and e.Deleted = 0
+		) er ON er.Id =
+		efv.Evidence_Id
+		RIGHT JOIN (
+		SELECT
+		*
+		FROM
+		e_189_user
+		WHERE
+		id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+		AND status != 0
+		) u ON er.User_Id = u.id
+		) rr
+		GROUP BY
+		rr.showName
+		ORDER
+		BY
+		rr.createTime
+		) crr
+	</select>
+
+	<select id="getVoiceCycleDateStatistics" resultType="map">
+		SELECT
+		rr.showTime '日期',
+		<foreach collection="shownames" item="showname" separator=",">
+			SUM(IF(rr.showName = #{showname},rr.duration,0)) '${showname}'
+		</foreach>
+		from
+		(
+		select
+		date_format(cytr.date_list , '%Y-%m-%d')
+		showTime ,
+		IF(u.nickname is
+		NULL,u.phone_no,IF(u.nickname =
+		'',u.phone_no,u.nickname))
+		showName,efv.Duration duration,u.id userId
+		from EvidenceFaxVoices efv
+		INNER JOIN
+		(
+		select e.* from Evidences e
+		where
+		e.CreateTime >=
+		str_to_date(#{startTime}, '%Y-%m-%d %H:%i:%s')
+		and
+		<![CDATA[ 
+		e.CreateTime <= str_to_date(#{endTime}, '%Y-%m-%d %H:%i:%s')
+		]]>
+		and
+		e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+		AND e.Category_Id = '5' and e.Deleted = 0
+		) er
+		on
+		er.Id =
+		efv.Evidence_Id
+		INNER JOIN
+		e_189_user
+		u
+		on er.User_Id = u.id
+
+		RIGHT JOIN
+		(
+		select * from
+		calendar_ym_temp cyt
+		where cyt.date_list >=
+		str_to_date(#{startTime},
+		'%Y-%m-%d %H:%i:%s')
+		and
+		<![CDATA[ 
+			cyt.date_list <=
+			str_to_date(#{endTime},
+			'%Y-%m-%d %H:%i:%s')
+		]]>
+		) cytr
+		on
+		date_format(er.CreateTime ,
+		'%Y-%m-%d') =
+		date_format(cytr.date_list
+		,
+		'%Y-%m-%d')
+
+		<if test="callTypes != null and callTypes.size > 0">
+			and efv.CallType in
+			<foreach collection="callTypes" item="callType" open=" ( "
+				separator=" , " close=" ) ">
+				#{callType.code}
+			</foreach>
+		</if>
+
+		) rr
+		GROUP
+		BY
+		rr.showTime ORDER BY
+		rr.showTime
+		LIMIT
+		#{pagination.start},#{pagination.size}
+	</select>
+
+	<select id="getTotalVoiceCycleDateQuantityStatisticsVo"
+		resultType="int">
+		SELECT
+		count(rr.Id)
+		FROM
+		(
+		SELECT
+		eer.*, cytr.date_list,
+		date_format(cytr.date_list, '%Y-%m-%d') curDate
+		FROM
+		(
+		SELECT
+		er.*
+		FROM
+		(
+		SELECT
+		e.*
+		FROM
+		Evidences e
+		WHERE
+		e.Category_Id = 5
+		AND e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+		AND e.Deleted = 0
+		AND e.CreateTime >= str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+							<![CDATA[ 
+								AND e.CreateTime <= str_to_date(
+									#{endTime},
+									'%Y-%m-%d %H:%i:%s'
+								)
+							]]>
+		) er
+		INNER JOIN EvidenceFaxVoices efv ON er.Id = efv.Evidence_Id
+		WHERE
+		1= 1
+		<if test="callTypes != null and callTypes.size > 0">
+			and efv.CallType in
+			<foreach collection="callTypes" item="callType" open=" ( "
+				separator=" , " close=" ) ">
+				#{callType.code}
+			</foreach>
+		</if>
+		) eer
+		RIGHT JOIN (
+		SELECT
+		*
+		FROM
+		calendar_ym_temp cyt
+		WHERE
+		cyt.date_list >=
+		str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+				<![CDATA[ 
+					AND cyt.date_list <= str_to_date(
+						#{endTime},
+						'%Y-%m-%d %H:%i:%s'
+					)
+				]]>
+		) cytr ON date_format(eer.CreateTime, '%Y-%m-%d') =
+		date_format(cytr.date_list, '%Y-%m-%d')
+		) rr
+		GROUP BY
+		rr.curDate
+		ORDER BY
+		rr.date_list
+	</select>
+
+	<select id="getVoiceSpecifiedDateStatistics" resultType="map">
+		 <![CDATA[
+			SELECT 
+			CONCAT(DATE_FORMAT(str_to_date(#{startTime}, '%Y-%m-%d %H:%i:%s'),'%k'),'点-',
+			  CAST((CAST(DATE_FORMAT(str_to_date(#{endTime}, '%Y-%m-%d %H:%i:%s'),'%k') AS signed) + 1) AS CHAR)   ,
+			'点') 
+			'时间段',
+		]]>
+		<foreach collection="shownames" item="showname" separator=",">
+			IFNULL( SUM(IF(rr.showName = #{showname},rr.duration,0)) , 0)
+			'${showname}'
+		</foreach>
+		FROM
+		(
+		SELECT
+
+		IF (
+		u.nickname IS NULL,
+		u.phone_no,
+
+		IF (
+		u.nickname = '',
+		u.phone_no,
+		u.nickname
+		)
+		) showName,
+		efv.Duration duration,
+		u.id userId
+		FROM
+		EvidenceFaxVoices efv
+		INNER JOIN (
+		SELECT
+		e.*
+		FROM
+		Evidences e
+		WHERE
+		e.CreateTime >= str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+			 <![CDATA[		
+				AND e.CreateTime <= str_to_date(
+					#{endTime},
+					'%Y-%m-%d %H:%i:%s'
+				)
+			]]>
+		AND e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+		AND e.Category_Id = '5' and e.Deleted = 0
+		) er ON er.Id =
+		efv.Evidence_Id
+		INNER JOIN
+		e_189_user u ON er.User_Id = u.id
+		<if test="callTypes != null and callTypes.size > 0">
+			and efv.CallType in
+			<foreach collection="callTypes" item="callType" open=" ( "
+				separator=" , " close=" ) ">
+				#{callType.code}
+			</foreach>
+		</if>
+		) rr
+	</select>
+
+	<select id="getTotalVoiceSpecifiedDateQuantityStatistics"
+		resultType="int">
+		<foreach collection="forIndexs" item="forIndex" separator=" UNION ALL ">
+			SELECT
+			count(1)
+			FROM
+			EvidenceFaxVoices efv
+			INNER JOIN (
+			SELECT
+			e.*
+			FROM
+			Evidences e
+			WHERE
+			<choose>
+				<when test="forIndex &lt; 9">
+					e.CreateTime >= str_to_date(
+					'${curTime} 0${forIndex}:00:00',
+					'%Y-%m-%d %H:%i:%s'
+					)
+								<![CDATA[		
+									AND e.CreateTime < str_to_date(
+									CONCAT(#{curTime}+' 0',(#{forIndex}+1),':00:00'),
+										'%Y-%m-%d %H:%i:%s'
+									)
+								]]>
+				</when>
+				<when test="forIndex == 9">
+					e.CreateTime >= str_to_date(
+					'${curTime} 0${forIndex}:00:00',
+					'%Y-%m-%d %H:%i:%s'
+					)
+								<![CDATA[		
+									AND e.CreateTime < str_to_date(
+									CONCAT(#{curTime}+' ',(#{forIndex}+1),':00:00'),
+										'%Y-%m-%d %H:%i:%s'
+									)
+								]]>
+				</when>
+				<otherwise>
+					e.CreateTime >= str_to_date(
+					'${curTime} ${forIndex}:00:00',
+					'%Y-%m-%d %H:%i:%s'
+					)
+								<![CDATA[		
+									AND e.CreateTime < str_to_date(
+									CONCAT(#{curTime}+' ',(#{forIndex}+1),':00:00'),
+										'%Y-%m-%d %H:%i:%s'
+									)
+								]]>
+				</otherwise>
+			</choose>
+			AND e.User_Id IN (
+			<foreach collection="userIds" item="userId" separator=" , ">
+				#{userId}
+			</foreach>
+			)
+			AND e.Category_Id = '5' and e.Deleted = 0
+			) er ON er.Id =
+			efv.Evidence_Id
+			<if test="callTypes != null and callTypes.size > 0">
+				and efv.CallType in
+				<foreach collection="callTypes" item="callType" open=" ( "
+					separator=" , " close=" ) ">
+					#{callType.code}
+				</foreach>
+			</if>
+
+		</foreach>
+	</select>
+
+	<select id="getPagination4FaxVoiceUser189NotInCompany"
+		resultType="com.renke.rdbao.beans.rdbao_v3.pojo.Evidences">
+		SELECT
+		er.Id id,
+		er. NAME NAME,
+		er.Description description,
+		er.CreateTime
+		createTime,
+		er.LastUpdateTime lastUpdateTime,
+		er.PNO_Id pnoId,
+		er.User_Id userId,
+		er.CODE CODE,
+		er.Size size,
+		er.State state,
+		er.App_Id
+		appId,
+		er.Company_Id companyId,
+		er.EvidencePackage_Id evidencePackageId,
+		er.Category_Id categoryId,
+		er.FileName fileName,
+		er.ThumbFileName
+		thumbFileName,
+		er.ReceiptState receiptState,
+		er.Deleted deleted,
+		er.ParentCode parentCode,
+		er.EvidRecordViewUrl evidRecordViewUrl,
+		er.HandleSource handleSource,
+		er.ExprieTime exprieTime
+		FROM
+		(
+		SELECT
+		e.*
+		FROM
+		Evidences e
+		WHERE
+		e.Category_Id = 5
+
+		<if test="deleteds != null and deleteds.size > 0">
+			AND e.Deleted in
+			<foreach collection="deleteds" item="deleted" open=" ( "
+				separator=" , " close=" ) ">
+				#{deleted.code}
+			</foreach>
+		</if>
+
+		<if test="states != null and states > 0">
+			AND e.State in
+			<foreach collection="states" item="state" open=" ( "
+				separator=" , " close=" ) ">
+				#{state.code}
+			</foreach>
+		</if>
+		AND e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+
+		AND e.CreateTime
+		>= str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+							<![CDATA[		
+									AND e.CreateTime <= str_to_date(
+										#{endTime},
+										'%Y-%m-%d %H:%i:%s'
+									)
+								]]>
+
+		) er
+		INNER JOIN EvidenceFaxVoices efv ON er.Id = efv.Evidence_Id
+		WHERE
+		1
+		= 1
+		AND (
+		efv.CallingNumber = #{searchPhoneNo}
+		OR efv.CalledNumber =
+		#{searchPhoneNo}
+		)
+		ORDER BY
+		er.CreateTime DESC
+		LIMIT
+		#{pagination.start},#{pagination.size}
+	</select>
+
+	<select id="count4FaxVoiceUser189NotInCompany" resultType="int">
+		SELECT
+		count(1)
+		FROM
+		(
+		SELECT
+		e.*
+		FROM
+		Evidences e
+		WHERE
+		e.Category_Id = 5
+		<if test="deleteds != null and deleteds.size > 0">
+			AND e.Deleted in
+			<foreach collection="deleteds" item="deleted" open=" ( "
+				separator=" , " close=" ) ">
+				#{deleted.code}
+			</foreach>
+		</if>
+
+		<if test="states != null and states > 0">
+			AND e.State in
+			<foreach collection="states" item="state" open=" ( "
+				separator=" , " close=" ) ">
+				#{state.code}
+			</foreach>
+		</if>
+		AND e.User_Id IN (
+		<foreach collection="userIds" item="userId" separator=" , ">
+			#{userId}
+		</foreach>
+		)
+
+		AND e.CreateTime
+		>= str_to_date(
+		#{startTime},
+		'%Y-%m-%d %H:%i:%s'
+		)
+							<![CDATA[		
+									AND e.CreateTime <= str_to_date(
+										#{endTime},
+										'%Y-%m-%d %H:%i:%s'
+									)
+								]]>
+
+		) er
+		INNER JOIN EvidenceFaxVoices efv ON er.Id = efv.Evidence_Id
+		WHERE
+		1
+		= 1
+		AND (
+		efv.CallingNumber = #{searchPhoneNo}
+		OR efv.CalledNumber =
+		#{searchPhoneNo}
+		)
+	</select>
+
+</mapper>

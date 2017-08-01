@@ -1,0 +1,434 @@
+@charset "utf-8";
+.welcome {
+	width:480px;
+	margin:100px auto;
+	height:20px;
+}
+/* 公司介绍开始 */
+.Company_Introduction {
+	width:220px;
+	height:300px;
+	margin:18px auto;
+}
+.Company_Introduction_details {
+	width:170px;
+	height:150px;
+	padding-bottom:82px;
+	margin:0 auto;
+}
+.ul_details {
+	list-style:none;
+	width:100%;
+}
+.ul_edit a {
+	text-decoration:none;
+	color:#000000;
+}
+.ul_details img,.ul_edit img {
+	margin-bottom:-3px;
+}
+.detail_item {
+	width:100%;
+	line-height: 35px;
+	border-bottom:1px solid #bbbbba;
+}
+.detail_icon {
+	width:17px;
+	padding-right:18px;
+	display:inline-block; 
+}
+.detail_text {
+	height:auto;
+	width:155px;
+}
+.Company_Introduction_edit {
+	width:87%;
+	margin:0 auto;
+	height:40px;
+	border-top:1px solid #bbbbba;
+}
+.ul_edit {
+	width:100px;
+	height:24px;
+	list-style:none;
+	line-height:22px;
+	margin:10px auto;
+}
+.edit_icon {
+	width:17px;
+	padding-right:10px;
+	display:inline-block;
+}
+/* 公司介绍结束 */
+/* 通知开始 */
+.inform_list {
+	width:88%;
+	height:auto;
+	margin:30px auto;
+}
+.filter {
+	width:65px;
+	height:24px;
+	border:1px solid #cccccc;
+	text-align:center;
+	line-height:22px;
+}
+.filter img {
+	float:right;
+	margin-right:5px;
+	margin-top:8px;
+}
+.inform_content {
+	width:100%;
+	height:auto;
+	margin:20px auto;
+	font-size:14px;
+	color:#000000;
+}
+.content_list {
+	width:100%;
+	box-shadow:none;
+	line-height:38px;
+}
+.list_name {
+	width:75%;
+	text-indent:2em;
+}
+.list_title {
+	width:38%;
+	text-indent:2em;
+}
+.list_people {
+	width:28%;
+}
+.list_time {
+	width:11.5%;
+}
+.list_reply {
+	text-align:right;
+	float:right;
+	margin-right:25px;
+}
+.content_list tbody tr:nth-child(even) {
+    background: #fff !important;
+	color:#000000;
+}
+.content_list tr {
+	background:#eeebe4;
+	color:#000000;
+}
+.content_list a {
+	text-decoration:none;
+	color:#000000;
+}
+.content_list a:hover {
+	color:#8f8775;
+}
+.announcement_title {
+	width:400px;
+	height:34px;
+	margin:0 auto;
+}
+.announcement_title input {
+	width:100%;
+	height:100%;
+	border:1px dashed #cccccc;
+	text-align:center;
+	font-size:18px;
+	color:#C2C2C2;
+}
+.announcement_content {
+	width:100%;
+	height:280px;
+	margin:20px auto;
+}
+.announcement_content_text {
+	width:100%;
+	height:87%;
+}
+.announcement_content_text textarea {
+	width:100%;
+	height:100%;
+	border:1px dashed #cccccc;
+	border-bottom:1px solid #dddddd;
+	resize: none;
+	font-size:18px;
+	color:#C2C2C2;
+	text-indent:0.6em;
+	line-height:26px;
+}
+.announcement_content_other {
+	width:100%;
+	height:13%;
+	background:#f2f2f2;
+	border:1px solid #dddddd;
+}
+.announcement_attachment {
+	width:70px;
+	height:18px;
+	float:right;
+	margin:9px 20px;
+}
+.attachment_img {
+	float:left;
+}
+.attachment_text {
+	float:right;
+	color:#655f52;
+	line-height:20px;
+}
+.attachment_publish {
+	width:120px;
+	height:34px;
+	background:#c7bda5;
+	border-radius:10px;
+	text-align:center;
+	margin:30px auto;
+	line-height:32px;
+	font-size:18px;
+}
+.inform_list a {
+	text-decoration:none;
+}
+.inform_publish {
+	color:#fff;
+}
+.inform_items,.inform_choose {
+	float:left;
+	height:18px;
+	width:185px;
+	margin:9px 15px;
+	color:#655f52;
+}
+.inform_items select {
+	width:120px;
+	text-indent:0.2em;
+}
+.inform_items select option {
+	text-indent:0.6em;
+}
+.inform_choose {
+	line-height:24px;
+}
+.announcement_content_other a {
+	color:#655f52;
+}
+/* 通知页弹出框开始 */
+#cpm {
+	width:600px;
+	height:420px;
+	border-radius:5px;
+	background:#fff;
+	position:absolute;
+	z-index:3000;
+	left:50%;
+	right:50%;
+	margin:65px -165px;
+	box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
+	display:none;
+}
+.cpm_head,.cpm_foot {
+	width:100%;
+	height:35px;
+	background:#f2f2f2;
+}
+.cpm_head {
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom:1px solid #c4c4c4;
+}
+.cpm_head_title {
+	font-size:14px;
+	color:#333333;
+	float:left;
+	margin-left:15px;
+	line-height:33px;
+}
+.cpm_head_close {
+	width:10px;
+	height:10px;
+	float:right;
+	margin-top:12px;
+	margin-right:15px;
+	background:url(../image/CLOSE.png);
+}
+.cpm_body {
+	width:100%;
+	height:255px;
+	border-bottom:1px solid #c4c4c4;
+	overflow-y:auto;
+}
+.cpm_body_left {
+	width:110px;
+	height:255px;
+	float:left;
+	position:fixed;
+}
+.cpm_body_left_search {
+	width:85%;
+	height:25px;
+	float:right;
+	margin-top:15px;
+	border:1px solid #dddddd;
+	border-radius:3px;
+}
+.search_kuang {
+	width:70%;
+	height:100%;
+	border:none;
+	text-indent:0.6em;
+	line-height:24px;
+}
+.search_button {
+	width:15px;
+	height:15px;
+	float:right;
+	margin-right:5px;
+	margin-top:4px;
+	border:none;
+	background:url(../image/MAGNIFYING%20GLASS.png) no-repeat;
+	cursor:pointer;
+}
+.cpm_body_left_list {
+	width:109px;
+	height:auto;
+	min-height:195px;
+	border:1px solid #c4c4c4;
+	border-bottom:none;
+	position:absolute;
+	left:-1px;
+	right:0;
+	bottom:0;
+}
+.cpm_body_left_list ul {
+	line-height:26px;
+	margin-top:5px;
+	margin-left:15px;
+	list-style:none;
+}
+.cpm_body_right {
+	width:490px;
+	height:auto;
+	float:right;
+	padding-bottom:20px;
+}
+.cpm_chooser {
+	width:80px;
+	height:35px;
+	margin-top:25px;
+	margin-left:35px;
+	float:left;
+}
+.cpm_chooser_photo {
+	width:35px;
+	height:35px;
+	float:left;
+}
+.cpm_chooser_name {
+	width:45px;
+	height:100%;
+	float:right;
+	text-align:right;
+}
+.cpm_chooser_name input {
+	margin-top:4px;
+}
+.cpm_bottom {
+	width:100%;
+	height:92px;
+}
+.cpm_bottom_title {
+	width:95%;
+	height:24px;
+	margin:0 auto;
+}
+.already_choose,.clear_choose {
+	line-height:24px;
+	color:#655f52;
+}
+.already_choose {
+	float:left;
+}
+.clear_choose {
+	float:right;
+}
+.cpm_bottom_oprate {
+	width:100%;
+	height:68px;
+	overflow-y:auto;
+	margin:0 auto;
+}
+.cpm_bottom_oprate_people {
+	width:80px;
+	height:22px;
+	background:#f3f3f3;
+	border:1px solid #c4c4c4;
+	border-radius:3px;
+	margin-left:15px;
+	margin-top:5px;
+	float:left;
+}
+.operate_people_name {
+	float:left;
+	margin-left:5px;
+	line-height:20px;
+}
+.operate_people_clear {
+	float:right;
+	margin:7px 5px;
+}
+.cpm_foot {
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top:1px solid #c4c4c4;
+}
+.cpm_foot_button {
+	width:104px;
+	height:26px;
+	float:right;
+	margin-right:10px;
+	margin-top:4.5px;
+}
+.cpm_foot_button button {
+	width:45px;
+	height:24px;
+	border-radius:3px;
+	cursor:pointer;
+}
+.cpm_foot_button_cancle button{
+	background:#dddddd;
+	border:1px solid #c4c4c4;
+	float:left;
+}
+.cpm_foot_button_confirm button{
+	background:#c7bda5;
+	border:1px solid #b1a995;
+	color:#fff;
+	float:right;
+}
+/* 通知页弹出框结束 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

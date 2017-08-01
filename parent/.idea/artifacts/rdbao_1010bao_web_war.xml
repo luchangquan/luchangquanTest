@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rdbao-1010bao-web:war">
+    <output-path>$PROJECT_DIR$/../rdbao-1010bao-web/target</output-path>
+    <root id="archive" name="rdbao-1010bao-web.war">
+      <element id="artifact" artifact-name="rdbao-1010bao-web:war exploded" />
+    </root>
+  </artifact>
+</component>

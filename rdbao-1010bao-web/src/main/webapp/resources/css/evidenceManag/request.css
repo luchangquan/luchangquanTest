@@ -1,0 +1,86 @@
+.request{
+    border: 1px solid #ededed;
+    background-color: #fff;
+}
+.requestTips{
+    padding:5em 2em;
+    font-size:1.8em;
+    font-weight:bold;
+    color:#999;
+}
+.requestMinH{
+    min-height:380px;
+}
+table{
+    width:100%;
+    font-size: 1.4em;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+thead tr{
+    height:48px;
+    background-color:#F3F5FA;
+    font-weight:bold;
+    color:#393939;
+}
+tbody tr{
+    height:48px;
+    color:#696969;
+}
+
+tbody tr:nth-child(even){
+    background-color:#F8F8F8;
+}
+tbody tr:nth-child(odd){
+     background-color:#Fdfdfd;
+}
+td{
+    padding:0 1em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border:1px solid #fff;
+
+}
+.requestBox tr td:nth-child(1){
+    width:12%;
+}
+.requestBox tr td:nth-child(3),.requestBox tr td:nth-child(5){
+    width:10%;
+}
+.requestBox tr td:nth-child(2){
+    width:38%;
+}
+.requestBox tr td:nth-child(4),.requestBox tr td:nth-child(6){
+    width:15%;
+}
+.requestBox tr td:nth-child(3){
+    text-align: center;
+}
+
+/*RDP单独应用统计*/
+.appCount{
+    margin-bottom:32px;
+}
+.appCount:after{
+    content:"";
+    display: block;
+    clear:both;
+}
+.appCount>div{
+    width:33%;
+    float: left;
+    display: inline-block;
+}
+.appCount>div>h2{
+    font-size:.9em;
+    color:#999;
+}
+.appCount>div>p>span{
+    line-height: 82px;
+    font-size: 3em;
+}
+.CountType>p i,.CountTime>p i,.countSize>p i{
+    color: #494949;
+    margin-left: .6em;
+}

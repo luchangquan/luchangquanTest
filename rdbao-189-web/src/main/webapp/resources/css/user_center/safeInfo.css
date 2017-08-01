@@ -1,0 +1,118 @@
+.safeInfo > div {
+    border-bottom: 1px solid #dedede;
+    padding: 50px 80px;
+}
+
+.safeInfo > div:last-child {
+    border-bottom: none;
+}
+
+.safeInfo > div > h2 {
+    color: #2A8FD5;
+}
+
+.safeInfo > div > div {
+    padding: 24px 0 24px 80px;
+}
+
+.emailInfo > p, .mobileInfo > p {
+    font-size: 1.13em;
+    color: #696969;
+}
+
+.emailXiBox, .mobileXiBox {
+    margin: 16px 0;
+}
+
+.emailXiBox li, .mobileXiBox li, .passwordInfo li {
+    font-size: 1.13em;
+    margin-top: .8em;
+}
+
+.emailXiBox li i, .mobileXiBox li i, .passwordInfo li i {
+    width: 86px;
+    margin-right: 10px;
+    text-align: right;
+    display: inline-block;
+    color: #494949;
+}
+
+.emailXiBox li input, .mobileXiBox li input, .passwordInfo li input {
+    padding: .3em 6px .3em 6px;
+    width: 280px;
+}
+
+.passwordInfo li b {
+    margin-left: 1em;
+}
+
+.passwordInfo li span {
+    margin-left: .6em;
+}
+
+#passStrength {
+    display: inline-block;
+    height: 10px;
+    width: 130px;
+    border: 1px solid #ededed;
+    padding: 2px;
+    position: relative;
+    top: 0;
+}
+
+.ok {
+    background-color: green;
+}
+
+.ok:before, .ok:after, .middle:before, .middle:after, .weak:before {
+    content: "";
+    display: inline-block;
+    width: 31%;
+    height: 8px;
+    border-right: 5px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.ok:after, .middle:after {
+    border-right: none;
+    border-left: 5px solid #fff;
+    right: 0;
+    left: inherit;
+}
+
+.middle {
+    background: orange;
+}
+
+.middle:after {
+    background-color: #fff;
+}
+
+.weak:before {
+    background-color: red;
+}
+
+.emailBt, .mobileBt, .passNiBt, .emailZcBt, .mobileZcBt {
+    margin-left: 96px;
+    font-size: 1.13em;
+    padding: .5em 3em;
+    background-color: #2A8FD5;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.mobileTips, .emailTips, .passTips {
+    color: red;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 96px;
+}
+
+.emailXg, .mobileXg {
+    color: #2A8FD5;
+    text-decoration: underline;
+    cursor: pointer;
+}

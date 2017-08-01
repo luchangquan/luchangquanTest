@@ -1,0 +1,219 @@
+package com.renke.rdbao.beans.rdbao_2017.pojo;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.renke.rdbao.beans.common.pojo.base.BasePo;
+
+/**
+ * @author jgshun
+ * @date 2017-4-7 下午5:57:07
+ * @version 1.0
+ */
+@Table(name = "a_organization")
+public class AOrganization extends BasePo {
+	public static final String FIELD_ID = "id";
+	public static final String FIELD_NAME = "name";
+	public static final String FIELD_CODE = "code";
+	public static final String FIELD_PARENTID = "parentId";
+	public static final String FIELD_COMPANYID = "companyId";
+	public static final String FIELD_USERID = "userId";
+	public static final String FIELD_CREATETIME = "createTime";
+	public static final String FIELD_UPDATETIME = "updateTime";
+	public static final String FIELD_CREATEUSERID = "createUserId";
+	public static final String COLUMN_TENANTCODE = "tenantCode";
+	public static final String COLUMN_ALLNAME = "allName";
+
+	public static final String COLUMN_ID = "id";
+	public static final String COLUMN_NAME = "name";
+	public static final String COLUMN_CODE = "code";
+	public static final String COLUMN_PARENT_ID = "parent_id";
+	public static final String COLUMN_COMPANY_ID = "company_id";
+	public static final String COLUMN_USER_ID = "user_id";
+	public static final String COLUMN_CREATE_TIME = "create_time";
+	public static final String COLUMN_UPDATE_TIME = "update_time";
+	public static final String COLUMN_CREATE_USER_ID = "create_user_id";
+	public static final String COLUMN_TENANT_CODE = "tenant_code";
+	public static final String COLUMN_ALL_NAME = "all_name";
+
+	public static final String ORDER_CREATE_TIME_ASC = " " + COLUMN_CREATE_TIME + " ASC ";
+
+	@Id
+	@Column(name = "id")
+	private String id;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "all_name")
+	private String allName;
+	@Column(name = "code")
+	private String code;
+	@Column(name = "parent_id")
+	private String parentId;
+	@Column(name = "company_id")
+	private String companyId;
+	@Column(name = "user_id")
+	private String userId;
+	@Column(name = "create_time")
+	private Date createTime;
+	@Column(name = "update_time")
+	private Date updateTime;
+	@Column(name = "create_user_id")
+	private String createUserId;
+	@Column(name = "tenant_code")
+	private String tenantCode;
+
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the code
+	 */
+	public String getCode() {
+		return code;
+	}
+
+	/**
+	 * @param code
+	 *            the code to set
+	 */
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	/**
+	 * @return the parentId
+	 */
+	public String getParentId() {
+		return parentId;
+	}
+
+	/**
+	 * @param parentId
+	 *            the parentId to set
+	 */
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+
+	/**
+	 * @return the companyId
+	 */
+	public String getCompanyId() {
+		return companyId;
+	}
+
+	/**
+	 * @param companyId
+	 *            the companyId to set
+	 */
+	public void setCompanyId(String companyId) {
+		this.companyId = companyId;
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId
+	 *            the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * @return the createTime
+	 */
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * @param createTime
+	 *            the createTime to set
+	 */
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	/**
+	 * @return the updateTime
+	 */
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	/**
+	 * @param updateTime
+	 *            the updateTime to set
+	 */
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	/**
+	 * @return the createUserId
+	 */
+	public String getCreateUserId() {
+		return createUserId;
+	}
+
+	/**
+	 * @param createUserId
+	 *            the createUserId to set
+	 */
+	public void setCreateUserId(String createUserId) {
+		this.createUserId = createUserId;
+	}
+
+	public String getTenantCode() {
+		return tenantCode;
+	}
+
+	public void setTenantCode(String tenantCode) {
+		this.tenantCode = tenantCode;
+	}
+
+	public String getAllName() {
+		return allName;
+	}
+
+	public void setAllName(String allName) {
+		this.allName = allName;
+	}
+
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+    http://www.springframework.org/schema/beans/spring-beans.xsd    
+    http://www.springframework.org/schema/tx    
+    http://www.springframework.org/schema/tx/spring-tx.xsd   
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd   
+    http://www.springframework.org/schema/mvc   
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util.xsd
+	http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:registry id="zk10_168_228_244" address="zookeeper://10.168.228.244:2181"
+		file="${rdbao.home}/registry/zk10_168_228_244/r.cache" check="true"
+		dynamic="true" />
+
+	<dubbo:protocol id="protocol_dubbo_1"
+		accesslog="${rdbao.home}/logs/provider/protocol/protocol_dubbo_1/p.log"
+		name="dubbo" port="20880" threadpool="fixed" threads="150" />
+
+	<dubbo:provider id="dubbo_provider_1" protocol="dubbo"
+		owner="jgshun2" accesslog="${rdbao.home}/logs/provider/p.log"
+		registry="zk10_168_228_244" token="true" version="1.0" delay="-1"
+		timeout="30000" layer="biz" retries="0" threadpool="fixed"
+		connections="30" threads="100" />
+
+
+</beans>   

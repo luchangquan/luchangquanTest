@@ -1,0 +1,1245 @@
+audio {
+    display: none;
+}
+
+.busiType {
+    float: right;
+    font-weight: normal;
+    color: #696969;
+    font-size: .8em;
+    cursor: pointer;
+    border: 1px solid #dedede;
+    padding: .3em 2em .3em 1em;
+    margin-top: -.3em;
+    position: relative;
+    background-color: #fcfcfc;
+    transition: all .5s;
+}
+
+.busiType:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-left-color: #696969;
+    position: absolute;
+    top: 6px;
+    right: .4em;
+}
+
+/*组成员*/
+.groupBox, .evidFixedbox {
+    width: 230px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -255px;
+    z-index: 1000;
+    background-color: #f6fafd;
+    box-shadow: -2px 0 5px #999;
+}
+
+.groupClose {
+    position: absolute;
+    width: 18px;
+    height: 60px;
+    top: 50%;
+    left: -18px;
+    margin-top: -30px;
+    border: 1px solid #dedede;
+    border-right: 0;
+    background: #fff url("../../images/close.png") no-repeat center;
+    background-size: 80% 60%;
+    box-shadow: -2px 0 5px #999;
+    cursor: pointer;
+    transition: all .6s
+}
+
+.groupClose:hover {
+    background-color: #e3f0fc;
+}
+
+.groupCon, .evidFiContentBox {
+    height: 100%;
+    width: 100%;
+    padding: 72px 24px 24px 24px;
+    overflow-y: auto;
+
+}
+
+.groupSearch {
+    width: 100%;
+    height: 36px;
+    position: relative;
+
+}
+
+.groupSearch input[type=text] {
+    width: 100%;
+    border: 1px solid #dedede;
+    font-size: 1.4em;
+    padding: 8px 3px;
+}
+
+.groupSeBt {
+    width: 34px;
+    height: 34px;
+    background: #999 url("../../images/search.png") no-repeat center;
+    background-size: 70%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer
+}
+
+.groupSeBt:hover {
+    background-color: #004796;
+}
+
+.groupListBox {
+    margin-top: 24px;
+}
+
+.groupListBox > .groupList, .groupList > .groupNaList, .groupNaList > .groupList > .groupNaList {
+    margin-left: 1.8em;
+    border-left: 1px dashed #bbb;
+}
+
+.groupList > .groupNaList, .groupNaList > .groupList > .groupNaList {
+    margin-left: 2.2em;
+}
+
+.myGroup, .allGroup, .groupList > h2, .groupNaList > .groupList > h2 {
+    height: 32px;
+    line-height: 32px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    color: #686868;
+    font-size: 1.6em;
+    cursor: pointer;
+    position: relative;
+    padding-left: 14px
+}
+
+.myGroup {
+    margin-bottom: .3em;
+
+}
+
+.groupList > h2:before, .groupNaList > .groupList > h2:before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 2px;
+    border-top: 1px dashed #bbb;
+    position: absolute;
+    left: 0;
+    top: 18px;
+}
+
+.myGroup > i, .allGroup > i, .groupList > h2 > i, .groupNaList > .groupList > h2 > i {
+    width: 24px;
+    background: url("../../images/groupAl.png") no-repeat left center;
+    background-size: 18px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    float: left
+}
+
+.myGroup > i {
+    background-image: url("../../images/mo-user.png");
+}
+
+.groupList > h2 > i, .groupNaList > .groupList > h2 > i {
+    padding-left: 22px;
+    background-image: url("../../images/groupTz.png");
+    font-size: 1.4em;
+    overflow-x: visible;
+}
+
+.groupNaList > .groupList > h2 > i {
+    background-image: url("../../images/groupXz.png");
+}
+
+.groupList h2 + .groupNaList {
+    display: none;
+}
+
+.groupNaList > li {
+    font-size: 1.4em;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: .5em;
+    color: #393939;
+    cursor: pointer;
+    padding-left: 18px;
+}
+
+/*END组成员*/
+/*
+公证申请
+*/
+.evidFixedbox {
+    right: -230px; /*-230*/
+    box-shadow: none;
+    z-index: 999;
+}
+
+/*左边按钮*/
+.evidFixedLeft {
+    width: 36px;
+    height: 100%;
+    border: 1px solid #ededed;
+    border-top: none;
+    border-bottom: none;
+    position: absolute;
+    left: -36px;
+    background-color: #fcfcfc;
+    box-shadow: -3px 0 3px #ccc;
+}
+
+.evidFixed {
+    position: absolute;
+    bottom: 5em;
+    width: 100%;
+}
+
+.evidFixed > li {
+    width: 100%;
+    height: 42px;
+    border-top: 1px solid #ededed;
+    background: no-repeat center;
+    background-size: auto 28px;
+    position: relative;
+    cursor: pointer
+}
+
+.evidFixed > li:last-child {
+    border-bottom: 1px solid #ededed;
+}
+
+.evidFixed > li.evidFiBb {
+    height: 150px;
+    background: url("../../images/evidFiBb.png") no-repeat center 12px;
+    background-size: auto 28px;
+}
+
+.evidFixed > li.scrollTop {
+    background-image: url("../../images/scrollTop.png");
+    display: none;
+}
+
+.evidFixed > li.evidFiDel {
+    background-image: url("../../images/evidFiDel.png");
+}
+
+.evidFixed > li.evidWechat {
+    background-image: url("../../images/evidWechat.png");
+}
+
+.evidFixed > li.evidFiBb > b {
+    color: #219fd8;
+    font-size: 1.4em;
+    width: 1em;
+    display: inline-block;
+    margin: 42px 0 0 10px;
+}
+
+.evidFixed > li.evidFiBb > i {
+    width: 100%;
+    color: red;
+    text-align: center;
+}
+
+.evidFixed > li.evidFiBb:hover {
+    background-color: #ededed;
+}
+
+.evidFixed > li > span {
+    width: 100px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #219fd8;
+    color: #fff;
+    position: absolute;
+    left: -130px;
+    top: 5px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: all .3s;
+    display: none;
+}
+
+.evidFixed > li > span:after {
+    width: 10px;
+    height: 10px;
+    content: "";
+    background-color: #219fd8;
+    display: inline-block;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -5px;
+    top: 10px;
+}
+
+.evidFixed > li.evidFiBb > span {
+    top: 48px;
+}
+
+.evidFixed > li.evidWechat > span {
+    width: 100px;
+    height: 120px;
+    top: -80px;
+    padding-top: 85px;
+    background: #219fd8 url("../../images/wechatIm.png") no-repeat center 10px;
+    background-size: 80px;
+}
+
+.evidFixed > li.evidWechat > span:after {
+    top: 90px;
+}
+
+.evidFixed > li:hover > span {
+    animation: evidFixed .3s linear;
+    opacity: 1;
+    left: -110px;
+    display: block;
+}
+
+@keyframes evidFixed {
+    0% {
+        left: -130px;
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        left: -110px;
+        opacity: 1;
+        display: block;
+    }
+}
+
+/*END左边按钮*/
+/*公证申请列表*/
+.evidFiContentBox {
+    padding: 72px 0 0 0;
+    position: relative;
+}
+
+.evidFiContentTitle {
+    padding: 0 12px 0 12px;
+    font-size: 1.4em;
+}
+
+.evidFiContentTitle i {
+    position: relative;
+    top: 3px;
+}
+
+.evidFiContentTitle input[type=checkbox]:checked + i:before {
+    top: -18px;
+    left: 0
+}
+
+.evidFiContentTitle span {
+    float: right;
+    cursor: pointer;
+}
+
+.evidFiContentTitle span:hover {
+    color: #219fd8;
+}
+
+.evidFiContent {
+    width: 100%;
+    position: absolute;
+    top: 102px;
+    bottom: 50px;
+    overflow-y: auto;
+}
+
+.evidFiContent li {
+    background-color: #fff;
+    margin-bottom: 1em;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 12px 12px 12px 32px;
+    position: relative;
+}
+
+.evidFiContent li label {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+}
+
+.evidFiContent li span {
+    font-size: 1.13em;
+    color: #393939;
+}
+
+.evidFiContent li p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-top: .2em;
+}
+
+.evidFiContentBt {
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    padding: 0 12px;
+    width: 100%;
+}
+
+.evidFiContentBt span {
+    background-color: #219fd8;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    font-size: 1.33em;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.evidFiContentBt span:hover, .evidBtOk:hover {
+    background-color: #004796;
+}
+
+/*END公证申请列表*/
+/*
+END公证申请
+*/
+/*更多*/
+.moreBox {
+    position: absolute;
+    z-index: 999;
+    top: 300px;
+    left: 300px;
+    width: 100px;
+    height: 144px;
+    background-color: #fff;
+    box-shadow: 0 0 5px #ccc;
+    display: none;
+}
+
+.moreBox li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 28px;
+    font-size: 1.13em;
+    color: #696969;
+    border-bottom: 1px solid #f2f2f2;
+    background: no-repeat 6px center;
+    background-size: 16px;
+    cursor: pointer
+}
+
+.moreBox li:hover {
+    background-color: #219fd8;
+    color: #fff;
+}
+
+.moreBox li.addBtl {
+    cursor: default;
+}
+
+.moreBox li.addBtl:hover {
+    background-color: transparent;
+    color: #696969;
+}
+
+.moreBox li:nth-child(-n+2) {
+    border: none;
+}
+
+.moreBox li.addBtl {
+    background-image: url("../../images/add.png");
+}
+
+/*.moreBox li.evidDown {
+    background-image: url("../../images/down.png");
+}
+.moreBox li.evidDown:hover {
+    background-image: url("../../images/down-0.png");
+}*/
+
+.moreBox li.evidRemove {
+    background-image: url("../../images/del.png");
+}
+
+.moreBox li.evidRemove:hover {
+    background-image: url("../../images/del-0.png");
+}
+
+/*END更多*/
+/*证据详情 在线播放*/
+.evidInfoConBox > div {
+    background-color: #fff;
+    border: 1px solid #efefef;
+}
+
+.evidRecord, .evidVideo {
+    padding: 24px 0;
+}
+
+.flowplayer, .evidImage, .bigImgCo,.bigIm {
+    height: 550px;
+}
+
+.videoPlay {
+    float: left;
+    width: 100%;
+}
+
+.evidVideo {
+    position: relative;
+    overflow: hidden;
+}
+
+.smallIm {
+    border: 1px solid #efefef;
+    width: 100%;
+    height: 5em;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.smallIm > span {
+    width: 12.5%;
+    height: 100%;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.smallIm > span.smon {
+    border-color: #666;
+}
+
+.smallIm > span.smon:before {
+    content: "";
+    background-color: #666;
+    width: 8px;
+    height: 8px;
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    margin-left: -4px;
+}
+
+.smallIm > span * {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.bigImgCo{
+    width:100%;
+}
+.evidImage, .bigIm {
+    width: 947px;
+    display: table-cell;
+    background-color: #000;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.evidVideo:hover > a {
+    display: inline-block;
+    position: absolute;
+    height: 65px;
+    width: 65px;
+    background: url(../../images/le-rg.png) no-repeat left top;
+    top: 50%;
+    left: 4px;
+    margin-top: -33px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.evidVideo > a.bigRight {
+    background-position: right bottom;
+    left: auto;
+    right: 4px;
+}
+
+.evidVideo > a.bigLeft:hover {
+    background-position: left bottom;
+}
+
+.evidVideo > a.bigRight:hover {
+    background-position: right top;
+}
+
+.evidImage *, .bigIm * {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.attachment {
+    padding: 24px 24px 36px 24px;
+    color: #686868;
+}
+
+.attachment a {
+    color: #169BD5;
+    margin-right: 16px;
+}
+
+.attachment a:hover {
+    text-decoration: underline;
+}
+
+.evidInfoText, .evidInfoBt, .evidOther {
+    padding: 16px 24px;
+}
+
+.evidInfoTitle {
+    font-size: 1.4em;
+    color: #494949;
+    margin-bottom: .8em;
+}
+
+.evidInfoTitle > span {
+    float: right;
+    font-size: .8em;
+    color: #989898;
+}
+
+.reTips {
+    padding: 0 24px 2em 24px;
+    font-size: 1.13em;
+    color: #686868;
+}
+
+.reTips > span {
+    width: 30%;
+    margin-bottom: 1em;
+}
+
+.evidOther > ul {
+    width: 100%;
+    font-size: 1.4em;
+}
+
+.evidOther li {
+    width: 100%;
+    margin-bottom: .6em;
+    color: #494949;
+}
+
+.evidOther li i {
+    width: 30%;
+    text-align: right;
+    margin-right: 24px;
+    color: #989898;
+}
+
+.evidInfoBz, .notaryTime {
+    font-size: 1.2em;
+    color: #989898;
+    margin-top: .3em;
+}
+
+.evidInfoBz span, .notaryTime span {
+    width: 45%;
+}
+
+.evidInfoBt {
+    text-align: right
+}
+
+.evidInfoBt span {
+    border: 1px solid #dedede;
+    padding: .4em 1.5em;
+    margin: 0 .6em;
+    color: #494949;
+    cursor: pointer;
+    transition: all .5s;
+    border-radius: 3px;
+}
+
+.evidInfoBt span:hover {
+    border-color: transparent;
+    color: #fff;
+    background-color: #219fd8;
+}
+
+/*END证据详情 在线播放*/
+
+/*申请公证*/
+.notaryInfo {
+    background-color: #fff;
+}
+
+.notaryInfoClo {
+    background-color: #ccc
+}
+
+.NotaryLi table {
+    border-collapse: collapse;
+    min-width: 100%;
+    font-size: 1em;
+}
+
+.NotaryLi tr {
+    border-bottom: 1px solid #dedede;
+    height: 48px;
+}
+
+.NotaryLi tr:hover {
+    background-color: #fbfbfb
+}
+
+.NotaryLi tr td:first-child {
+    padding-left: 20px;
+}
+
+#Notary01 thead tr {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+#Notary01 tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.Notitle {
+    width: 80%;
+    margin: 0 auto;
+    height: 48px;
+    line-height: 48px;
+}
+
+.Notitle > li {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+    font-size: 1.4em;
+    position: relative
+}
+
+.Notitle > li:after {
+    content: "\003E";
+    font-size: 1.4em;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.Notitle > li:last-child:after {
+    content: "";
+}
+
+.Notitle > li.ath {
+    color: #2A8FD5;
+}
+
+.NotaryLi {
+    position: absolute;
+    top: 100px;
+    bottom: 60px;
+    width: 100%;
+    left: 0;
+}
+
+.NotaryLi > div {
+    width: 80%;
+    height: 100%;
+    display: none;
+    margin: 0 auto;
+    border: 1px solid #dedede;
+    font-size: 1.4em;
+}
+
+#Notary01 {
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    display: block;
+}
+
+.delete {
+    color: #2A8FD5;
+    cursor: pointer
+}
+
+#Notary02, #Notary03 {
+    padding: 30px;
+}
+
+.orczxz:first-child {
+    margin-bottom: 2em;
+}
+
+.orczxz > p {
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.orczxz > ul {
+    width: 50%;
+    float: left;
+    padding-left: 14px;
+    color: #666
+}
+
+.orczxz > ul > li {
+    margin-bottom: .6em
+}
+
+.orczxz:after, .pageFt:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.oryysx {
+    padding-left: 10%
+}
+
+.oryysx label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.oryysx label input {
+    width: 50%;
+    padding: 3px 6px;
+}
+
+.oryysx label b {
+    color: #999;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+#Notary04 p {
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 300px;
+    background: url("../../images/right.png") no-repeat center 120px;
+    background-size: 140px;
+}
+
+#Notary04 p a {
+    color: #2A8FD5;
+}
+
+.NotaryBut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 20px;
+}
+
+.NotaryBut > span {
+    display: none;
+    padding: 6px 3em;
+    margin: 0 1em;
+    background-color: #2A8FD5;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all .6s;
+}
+
+.NotaryBut > span:nth-child(2) {
+    display: inline
+}
+
+.NotaryBut > span:hover {
+    background-color: #00469b
+}
+
+/*END申请公证*/
+/*
+
+主体
+
+*/
+.contentBox {
+    padding: 32px 72px 24px 36px;
+}
+
+/*search*/
+.evidSearch li {
+    padding-left: 70px;
+    margin-bottom: .9em;
+    position: relative;
+    line-height: 32px;
+}
+
+.evidSearch li:last-child {
+    margin-bottom: 0;
+}
+
+.evidSearch li > i {
+    color: #999;
+    position: absolute;
+    left: 0;
+}
+
+.evidSearch li.evidSearchType {
+    margin-top: -1em;
+}
+
+.evidSearch li.evidSearchType > i {
+    top: 1em;
+}
+
+.evidSearchType span {
+    display: inline-block;
+    color: #7f7f7f;
+    padding-right: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    margin: 1em .2em 0 0;
+    transition: all .5s;
+}
+
+.evidSearchType span.no3, .evidSearchType span:hover {
+    background-color: #219fd8;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.dateTime input {
+    width: 240px;
+}
+
+.dateTime span {
+    margin: 0 10px;
+}
+
+.evidGj:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.evidGj input {
+    width: 424px;
+    border: 1px solid #ccc;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px 0 6px;
+}
+
+.evidGj article {
+    width: 90px;
+    border: 1px solid #ccc;
+    border-right: 0;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    position: relative;
+    padding-left: 6px;
+    float: left;
+    background-color: #f5f5f5;
+}
+
+.evidGj article p {
+    cursor: pointer;
+}
+
+.evidGj article:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    border: 6px solid transparent;
+    border-top: 6px solid #999;
+    position: absolute;
+    top: 13px;
+    right: 5px;
+}
+
+.selectGj {
+    position: absolute;
+    top: 31px;
+    left: -1px;
+    width: 91px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    display: none;
+}
+
+.selectGj span {
+    padding-left: 6px;
+    font-weight: normal;
+    display: block;
+    cursor: pointer;
+    margin: .4em 0;
+}
+
+.selectGj span:hover {
+    background-color: #219fd8;
+    color: #fff;
+}
+
+.evidBtOk {
+    line-height: 32px;
+    padding: 0 60px;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #219fd8;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+/*END search*/
+/*证据列表*/
+.evidListBox {
+    margin-top: 42px;
+    background-color: #fff;
+}
+
+.evidType {
+    border: 1px solid #ededed;
+    background-color: #fff;
+    padding: .6em .6em .8em .6em;
+    margin-bottom: 24px;
+    color: #004796;
+    font-size: 1.6em;
+}
+
+.evidList {
+    width: 100%;
+    padding: 0 .8em;
+}
+
+.evidListCon {
+    width: 14.66%;
+    margin: 0 2.4% 2.8em 0;
+    float: left;
+    background-color: #fbfafb;
+}
+
+.evidConImg {
+    height: 220px;
+    border: 1px solid #f2eded;
+    text-align: center;
+    position: relative;
+    display: table-cell;
+    display: block \9;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.video .evidConImg:before, .record .evidConImg:before, .image .evidConImg:before, .telephone .evidConImg:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0) url("../../images/play1.png") no-repeat center;
+    background-size: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+
+}
+
+.video .evidConImg:hover:before, .record .evidConImg:hover:before, .image .evidConImg:hover:before, .telephone .evidConImg:hover:before {
+    background-size: 30%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.record .evidConImg:before {
+    background-image: url("../../images/record.png");
+}
+
+.image .evidConImg:before {
+    background-image: url("../../images/imageV.png");
+
+}
+
+.telephone .evidConImg:before {
+    background-image: url("../../images/telephone.png");
+}
+
+.record .evidConImg:hover:before {
+    background-image: url("../../images/record.png");
+}
+
+.image .evidConImg:hover:before {
+    background-image: url("../../images/imageV.png");
+
+}
+
+.telephone .evidConImg:hover:before {
+    background-image: url("../../images/telephone.png");
+}
+
+.evidConImg * {
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.evidConText {
+    position: relative;
+    padding: 0 .5em .8em .5em;
+}
+
+.evidConText:hover .addMore {
+    display: block;
+}
+
+.addMore {
+    position: absolute;
+    top: 1em;
+    right: .5em;
+    background-color: #fbfafb;
+    cursor: pointer;
+    display: none;
+    width: 27px;
+    height: 22px;
+}
+
+.addMore:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.addMore:after {
+    content: "\2026";
+    display: inline-block;
+    color: #ccc;
+    font-size: 1.8em;
+    text-align: center;
+    position: absolute;
+    right: 4px;
+    top: -7px;
+}
+
+.addMore:hover:before {
+    border-color: #219fd8;
+}
+
+.addMore:hover:after {
+    color: #219fd8;
+}
+
+.evidConTitle {
+    white-space: nowrap;
+    font-size: 1.5em;
+    color: #383838;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding: 1em 0 .3em 0;
+    cursor: default;
+}
+
+.evidName {
+    position: relative;
+}
+
+.evidName span {
+    padding-left: 14px;
+    background: url("../../images/map-zb.png") no-repeat left center;
+    background-size: auto 14px;
+    position: absolute;
+    right: 0;
+    max-width: 40%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+.evidConTime, .evidName {
+    font-size: 1.2em;
+    color: #999;
+}
+
+.evidName {
+    margin-bottom: .4em;
+}
+
+/*
+
+END主体
+
+*/
+@media screen and (max-width: 1600px) {
+
+    .evidConImg {
+        height: 190px;
+    }
+
+    .flowplayer, .evidImage, .bigImgCo,.bigIm {
+        height: 520px;
+    }
+
+    .evidInfo, .notaryInfo {
+        width: 1000px;
+        margin-left: -500px;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+
+    .flowplayer, .evidImage, .bigImgCo,.bigIm {
+        height: 450px;
+    }
+
+    .evidInfo, .notaryInfo {
+        width: 900px;
+        margin-left: -450px;
+        height: 90%;
+        top: 5%;
+    }
+
+    .notaryInfoConBox {
+        padding-top: 32px;
+    }
+
+    .NotaryLi {
+        top: 80px;
+    }
+
+    .NotaryLi > div {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 1366px) {
+
+    .evidConImg {
+        height: 180px;
+    }
+
+}
+
+.jwlogo {
+    display: none
+}

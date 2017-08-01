@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:properties/${publish.evn}/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 自动扫描的包名 -->
+	<context:component-scan base-package="com.renke.rdbao.daos.rdbao_sms_2017.dao.impl">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+
+	<!-- 配置监控 -->
+	<bean id="rdbaoSms2017-stat-filter" class="com.alibaba.druid.filter.stat.StatFilter">
+		<property name="mergeSql" value="true" />
+		<property name="logSlowSql" value="true" />
+	</bean>
+
+	<!-- druid数据源 -->
+	<bean id="rdbaoSms2017DataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+
+		<property name="driverClassName" value="${jdbc.rdbaoSms2017.driverClass}" />
+		<property name="url" value="${jdbc.rdbaoSms2017.url}" />
+		<property name="username" value="${jdbc.rdbaoSms2017.username}" />
+		<property name="password" value="${jdbc.rdbaoSms2017.password}" />
+
+		<property name="filters" value="stat" />
+		<property name="maxActive" value="20" />
+		<property name="initialSize" value="1" />
+		<property name="maxWait" value="60000" />
+		<property name="minIdle" value="3" />
+
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+
+		<property name="validationQuery" value="SELECT 'rdbao_sms_2017'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+
+
+		<!-- 连接属性 -->
+		<property name="connectionProperties" value="clientEncoding=UTF-8" />
+	</bean>
+
+	<!-- mybatis SessionFactory -->
+	<bean id="rdbaoSms2017SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:applications/rdbao-persistence/mybatis-config.xml"></property>
+		<property name="dataSource" ref="rdbaoSms2017DataSource" />
+		<property name="mapperLocations"
+			value="classpath:com/renke/rdbao/daos/rdbao_sms_2017/dao/mapper/*_mapper.xml" />
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageHelper">
+					<property name="properties">
+						<value>
+							dialect=mysql
+							reasonable=false
+							offsetAsPageNum=false
+							rowBoundsWithCount=false
+							pageSizeZero=false
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+	</bean>
+
+
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage"
+			value="com.renke.rdbao.daos.rdbao_sms_2017.dao.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="rdbaoSms2017SqlSessionFactory" />
+		<property name="properties">
+			<value>
+				mappers=tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper,com.renke.rdbao.daos.mapper.support.mapper.InsertListNotUseGeneratedKeyMapper
+				IDENTITY=MYSQL
+				notEmpty=false
+			</value>
+		</property>
+	</bean>
+
+	<!-- 事务管理 -->
+	<bean id="rdbaoSms2017TransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="rdbaoSms2017DataSource" />
+	</bean>
+
+	<tx:advice id="rdbaoSms2017TxAdvice" transaction-manager="rdbaoSms2017TransactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="cancle*" propagation="REQUIRED" />
+			<tx:method name="deal*" propagation="REQUIRED" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="rdbaoSms2017InterceptorPointCuts"
+			expression="execution(* com.renke.rdbao.daos.rdbao_sms_2017.dao.*.*(..))" />
+		<aop:advisor advice-ref="rdbaoSms2017TxAdvice"
+			pointcut-ref="rdbaoSms2017InterceptorPointCuts" />
+	</aop:config>
+
+</beans>

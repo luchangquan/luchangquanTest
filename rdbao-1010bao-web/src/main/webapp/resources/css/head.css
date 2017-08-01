@@ -1,0 +1,530 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    font-family: Microsoft YaHei, Microsoft YaHei UI, 微软雅黑, 黑体, Arial, Helvetica, sans-serif;
+    font-size: .625em;
+    background-color: #f9fafc;
+}
+
+header, section, article, nav, footer {
+    display: block
+}
+
+i {
+    font-style: normal;
+    display: inline-block;
+}
+
+h2, h3 {
+    font-weight: normal;
+}
+
+ul {
+    list-style-type: none
+}
+
+a {
+    text-decoration: none;
+    color: #333
+}
+
+span {
+    display: inline-block;
+}
+
+input {
+    font-size: 1em;
+}
+
+input:focus {
+    outline: none
+}
+
+input[type=checkbox], input[type=radio]{
+    display: none;
+}
+
+input[type=checkbox] + i, input[type=radio] + i{
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+}
+
+input[type=checkbox]:checked + i, input[type=radio]:checked + i{
+    border-color: #219fd8;
+    position: relative;
+}
+
+input[type=checkbox]:checked + i:before, input[type=radio]:checked + i:before{
+    content: "\2714";
+    color: #219fd8;
+    font-size: 2em;
+    position: absolute;
+    left: 1px;
+    top: -11px;
+}
+
+.clear:after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.borBacPadd {
+    border: 1px solid #ededed;
+    background-color: #fff;
+    padding: 24px 48px;
+    font-size: 1.4em;
+}
+
+/*
+head
+*/
+.all-header {
+    background-color: #fff;
+    /*border-bottom: 2px solid #004796;*/
+    height: 55px;
+    width: 100%;
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    left: 0;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.notary-logo {
+    width: 200px;
+    height: 55px;
+    display: inline-block;
+    background: url(../images/notarylogo.png) no-repeat 16px center;
+    background-size: auto 30px;
+	margin-left:10px;
+}
+
+.all-logo {
+    width: 200px;
+    height: 55px;
+    display: inline-block;
+    background: url(../images/logo.png) no-repeat 16px center;
+    background-size: auto 30px;
+	margin-left:10px;
+}
+
+.header-right {
+    float: right;
+    position: relative;
+    height: 55px;
+}
+
+.header-right > li {
+    float: right;
+    height: 55px;
+}
+
+.userBox {
+    text-align: right;
+    padding-left: 10px;
+    margin-right: 16px;
+    transition: all .3s;
+    position: relative;
+    cursor: inherit;
+}
+
+.userBox:before {
+    content: "";
+    width: 10px;
+    height: 20px;
+    border-left: 1px solid #dedede;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.userBox:hover {
+    background-color: #ededed;
+}
+
+.user {
+    line-height: 55px;
+    color: #333;
+    font-size: 1.4em;
+    position: relative;
+    cursor: default;
+}
+
+.user:after {
+    content: "";
+    width: 18px;
+    height: 55px;
+    display: inline-block;
+    background: url(../images/userSzImg.png) no-repeat center;
+    background-size: 18px;
+    float: right;
+    margin-left: 10px;
+}
+
+.user > i {
+    width: 28px;
+    height: 28px;
+    background-color: #cecece;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    top: 9px;
+}
+
+.user > i:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/userImg.png) no-repeat center bottom;
+    background-size: 90%;
+}
+
+.user-ind {
+    position: absolute;
+    border: 1px solid #dedede;
+    right: 0;
+    top: 55px;
+    width: 150px;
+    box-shadow: 0 0 5px #ddd;
+    display: none;
+    background-color: #fff;
+}
+
+.userBox:hover .user-ind {
+    display: block
+}
+
+.headList {
+    padding: 16px 32px;
+    border-bottom: 1px solid #ededed;
+}
+
+.headList:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.headList li {
+    width: 100%;
+    display: block;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.telNum {
+    line-height: 55px;
+    padding: 0 10px;
+    font-size: 1.4em;
+}
+
+.signOut {
+    padding: 16px 32px;
+    font-size: 1.4em;
+}
+
+/*
+END head
+*/
+/*
+NAV
+*/
+
+.left-nav, .menuBox {
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    left: 0;
+    padding-top: 50px;
+    z-index: 999;
+}
+
+.nav-box {
+    padding-top: 32px;
+}
+
+.nav-box > li {
+    height: 50px;
+    position: relative;
+    border-bottom: 1px solid #dedede;
+    transition: all .5s;
+}
+.nav-box > li:nth-child(3){
+    display:none
+}
+.nav-box > li:first-child{
+    border-top:1px solid #dedede;
+}
+.nav-img {
+    width: 46px;
+    height: 46px;
+    background: no-repeat center;
+    background-size: auto 28px;
+    cursor: pointer
+}
+
+.imgO {
+    background-image: url(../images/mo-user.png)
+}
+
+.imgI {
+    background-image: url(../images/mo-index.png)
+}
+.imgT {
+    background-image: url(../images/mo-evid.png)
+}
+.imgF {
+    background-image: url(../images/mo-folder.png)
+}
+
+.imgTH {
+    background-image: url(../images/mo-order.png)
+}
+
+.imgA {
+    background-image: url(../images/mo-appc.png)
+}
+
+.nav-box > li.navOn, .nav-box > li:hover {
+    background-color: #219fd8;
+}
+
+.navOn .imgO, .nav-box > li:hover .imgO {
+    background-image: url(../images/mo-user-0.png)
+}
+
+.navOn .imgI, .nav-box > li:hover .imgI {
+    background-image: url(../images/mo-index-0.png)
+}
+.navOn .imgT, .nav-box > li:hover .imgT{
+    background-image: url(../images/mo-evid-0.png)
+
+}
+.navOn .imgF, .nav-box > li:hover .imgF {
+    background-image: url(../images/mo-folder-0.png)
+}
+
+.navOn .imgTH, .nav-box > li:hover .imgTH {
+    background-image: url(../images/mo-order-0.png)
+}
+
+.navOn .imgA, .nav-box > li:hover .imgA {
+    background-image: url(../images/mo-appc-0.png)
+}
+
+.nav-text {
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    color: #fff;
+    background-color: #219fd8;
+    white-space: nowrap;
+    font-size: 1.4em;
+    padding: .4em 1em;
+    opacity: 0;
+    box-shadow: 0 0 3px #bbb;
+    transition: all .3s;
+    display: none;
+}
+
+.nav-text:before {
+    width: 10px;
+    height: 10px;
+    content: "";
+    background-color: #219fd8;
+    display: inline-block;
+    transform: rotate(45deg);
+    position: absolute;
+    left: -5px;
+    top: 10px;
+}
+
+.nav-box > li:hover .nav-text {
+    display: block;
+    animation: navText .3s linear;
+    opacity: 1;
+    left: 56px;
+}
+
+@keyframes navText {
+    0% {
+        left: 70px;
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        left: 56px;
+        opacity: 1;
+        display: block;
+    }
+}
+
+/*
+END NAV
+*/
+/*
+主体
+*/
+.main {
+    position: absolute;
+    left: 50px;
+    right: 0;
+    top: 50px;
+}
+
+.contentBox {
+    width: 100%;
+    padding: 32px 36px 24px 36px;
+    overflow-x: hidden;
+}
+
+.BoxTitle {
+    padding-bottom: .3em;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #bbb;
+    color: #666;
+    background: no-repeat left 2px;
+    background-size: auto 18px;
+    font-size: 1.6em;
+    font-weight: normal;
+}
+/*END 主体*/
+/*分页*/
+.pageFt{
+    border: 1px solid #ededed;
+    background-color: #fff;
+    padding: .8em .6em;
+    font-size:1.2em;
+}
+.pageTips{
+    padding-top:.3em;
+    color:#989898;
+}
+.pageTips>i{
+    color:red;
+}
+.page {
+    float:right;
+}
+
+.page a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 16px;
+    padding: 3px 6px;
+    color: #666;
+    border: 1px solid #dfdfdf;
+    margin: 0 2px;
+}
+
+.page a:hover, .page a.onPage {
+    background: #0096ff;
+    color: #fff;
+    border: 1px solid #F3F3F3;
+}
+
+.page a.unclick, .page a.unclick:hover {
+    background: none;
+    border: 1px solid #eee;
+    color: #999;
+    cursor: default;
+}
+/*弹出层共用部分*/
+.evidInfoBox,.evidNotary,.infoTelMailbox {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.evidInfo,.notaryInfo,.infoTelMail {
+    width: 1100px;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -550px;
+    background-color: #f2f2f2;
+    border: 8px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .8);
+    border-radius: 5px;
+}
+
+.evidInfoClo,.notaryInfoClo,.infoTelMailTitle {
+    background-color: #c2c2c2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    z-index: 1200;
+}
+
+.evidInfoClo h2,.notaryInfoClo h2,.infoTelMailTitle h2 {
+    font-weight: bold;
+    color: #494949;
+}
+
+.evidInfoClose,.notaryClose,.InfoTelMailClose {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.evidInfoClose:before,.notaryClose:before,.InfoTelMailClose:before {
+    content: "\2716";
+    font-size: 2em;
+    position: absolute;
+    top: -6px;
+    left: 2px;
+    color: #686868;
+    transition: all .5s;
+}
+
+.evidInfoClose:hover:before,.notaryClose:hover:before,.InfoTelMailClose:hover:before {
+    color: #fff;
+    transform: rotate(180deg);
+}
+
+.evidInfoConBox,.notaryInfoConBox,.infoTelMailContent {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 50px 60px 32px 60px;
+	background:#fff;
+}
+
+/*END弹出层*/
+/*END 分页*/
+.footerM{
+    margin:28px 0 56px 0;
+    text-align: center;
+    color:#989898;
+}
+

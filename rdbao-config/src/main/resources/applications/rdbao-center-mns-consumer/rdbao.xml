@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<import
+		resource="classpath*:conf/consumer/${publish.evn}/com/renke/rdbao/services/_common_service_consumer_.xml" />
+	<import
+		resource="classpath*:conf/consumer/${publish.evn}/com/renke/rdbao/services/rdbaosms/service/*_consumer.xml" />
+	<import
+		resource="classpath*:conf/consumer/${publish.evn}/com/renke/rdbao/services/rdbao_2017/service/*_consumer.xml" />
+	<!-- <import -->
+	<!-- resource="classpath*:conf/consumer/${publish.evn}/com/renke/rdbao/services/cache/base/*_consumer.xml" 
+		/> -->
+	<!-- <import -->
+	<!-- resource="classpath*:conf/consumer/${publish.evn}/com/renke/rdbao/services/cache/rdbao_v3/service/*_consumer.xml" 
+		/> -->
+
+
+
+	<!-- <import -->
+	<!-- resource="classpath*:conf/consumer/dev/com/renke/rdbao/services/_common_service_consumer_.xml" 
+		/> -->
+	<!-- <import -->
+	<!-- resource="classpath*:conf/consumer/dev/com/renke/rdbao/services/rdbao_v3/service/*_consumer.xml" 
+		/> -->
+</beans>

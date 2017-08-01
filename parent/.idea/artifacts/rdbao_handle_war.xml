@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rdbao-handle:war">
+    <output-path>$PROJECT_DIR$/../rdbao-handle/target</output-path>
+    <root id="archive" name="rdbao-handle.war">
+      <element id="artifact" artifact-name="rdbao-handle:war exploded" />
+    </root>
+  </artifact>
+</component>

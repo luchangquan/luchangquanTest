@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.renke.rdbao.daos.rdbao_2017.dao.mapper.IMEvidenceRemotePcMapper">
+
+
+	<select id="countTime4User" resultType="long">
+		SELECT
+		IFNULL(SUM(erp.duration), 0)
+		FROM
+		m_evidence e,
+		m_evidence_remote_pc erp
+		WHERE
+		e.id = erp.evidence_id
+		<if test="startTime != null and startTime != ''">
+							<![CDATA[ 
+								AND e.create_time >= str_to_date(
+									#{startTime},
+									'%Y-%m-%d %H:%i:%s'
+								)
+							]]>
+		</if>
+		<if test="endTime != null and endTime != ''">
+							<![CDATA[ 
+								AND e.create_time <= str_to_date(
+									#{endTime},
+									'%Y-%m-%d %H:%i:%s'
+								)
+							]]>
+		</if>
+
+		<if test="statuses != null and statuses.size > 0">
+			and e.status IN
+			<foreach collection="statuses" item="status" open=" ( "
+				separator=" , " close=" ) ">
+				#{status.code}
+			</foreach>
+		</if>
+		<if test="nppCodes != null and nppCodes.size > 0">
+			and e.npp_code IN
+			<foreach collection="nppCodes" item="nppCode" open=" ( "
+				separator=" , " close=" ) ">
+				#{nppCode}
+			</foreach>
+		</if>
+		and e.user_id IN
+		<foreach collection="userIds" item="userId" open=" ( "
+			separator=" , " close=" ) ">
+			#{userId}
+		</foreach>
+	</select>
+</mapper>

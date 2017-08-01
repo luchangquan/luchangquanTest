@@ -1,0 +1,519 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    font-family: 微软雅黑, Microsoft YaHei, Microsoft YaHei UI, 黑体, Arial, Helvetica, sans-serif;
+    width: 100%;
+    font-size: 0.625em;
+    color: #333;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none
+}
+
+.clear {
+    clear: both;
+    height: 1px;
+    width: 100%;
+}
+
+i {
+    font-style: normal;
+}
+
+input {
+    font-family: "Microsoft YaHei", "Microsoft YaHei UI", "微软雅黑", 黑体, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+input:focus {
+    outline: none;
+}
+
+.login {
+    width: 100%;
+}
+
+.loginheader {
+    width: 1280px;
+    height: 50px;
+    padding: 24px 0;
+    margin: 0 auto;
+    position: relative
+}
+
+.loginheader span, .loginnav span {
+    display: inline-block
+}
+
+.bao1010logo {
+    width: 181px;
+    height: 50px;
+    background: url("../../images/a-logo.png") no-repeat center;
+    background-size: auto 100%;
+    margin-right: 50px;
+}
+
+.pagetitle {
+    font-size: 24px;
+    line-height: 50px;
+    color: #666;
+    position: relative;
+    top: -14px;
+}
+
+.bao1010tel {
+    float: right;
+    font-size: 16px;
+    color: #666;
+    line-height: 50px;
+}
+
+.loginbox {
+    width: 100%;
+    height: 550px;
+    background-color: #65cbfc;
+}
+
+.logincontent {
+    width: 1280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.loginlf {
+    width: 52%;
+    height: 550px;
+    background: url("../../images/login/lfbann.png") no-repeat right center;
+}
+
+.loginlf a {
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
+.loginrg {
+    position: absolute;
+    right: 5%;
+    width: 32%;
+    height: 390px;
+    top: 80px;
+    background: url("../../images/login/lgboxbg.png") repeat;
+    border-radius: 3px;
+}
+
+.loginnav {
+    width: 100%;
+    line-height: 55px;
+    border-bottom: 1px solid #dedede;
+}
+
+.loginnav span {
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    color: #999;
+    border-bottom: 3px solid transparent;
+    cursor: pointer
+}
+
+.loginnav span.current {
+    color: #03468d;
+    border-color: #03468d
+}
+
+.logintabs {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.userpw, .telnum {
+    width: 80%;
+    margin: 30px 10% 0 10%;
+    height: 180px;
+    display: none;
+}
+
+.userpw > li, .telnum > li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.lgtabscon > ul > li > input {
+    padding: 10px 4% 10px 16%;
+    width: 80%;
+}
+
+.lgtabscon > ul > li.imgnumber > input {
+    padding-left: 4%;
+    width: 47%;
+}
+
+.imgnumber {
+    position: relative;
+}
+
+.imgnumber > img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 42%;
+    height: 41px;
+}
+
+.imgnumber > img {
+    cursor: pointer
+}
+
+.userpw > li > i, .telnum > li > i {
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    background: #bbb no-repeat center;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
+
+.userpw > li.userid > i, .telnum > li.userid > i {
+    background-image: url("../../images/login/inuser.png")
+}
+
+.userpw > li.password > i, .telnum > li.password > i {
+    background-image: url("../../images/login/inpassw.png")
+}
+
+.loginbtbox {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logintips {
+    position: absolute;
+    top: -28px;
+    color: #f00;
+    font-size: 14px
+}
+
+.loginbt {
+    width: 100%;
+    line-height: 41px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    background-color: #00469b;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer
+}
+
+.signup {
+    line-height: 46px;
+    font-size: 1.2em;
+}
+
+.signup .lf {
+    color: #999;
+}
+
+.signup .rg {
+    color: #00469b;
+    float: right;
+}
+
+.loginfooter {
+    width: 1280px;
+    margin: 0 auto 48px auto;
+}
+
+.loginfooter > div {
+    width: 1000px;
+    margin-top: 24px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.loginfooter div a {
+    font-size: 1.16em;
+    color: #727171;
+    margin-right: 48px;
+    margin-left: 48px;
+    display: inline-block;
+}
+
+.loginfooter div a:hover {
+    color: #1a5aa2;
+}
+
+.loginfooter p {
+    color: #727171;
+    font-size: 12px;
+    margin-top: 24px;
+    text-align: center;
+}
+
+/*找回密码*/
+.recovery {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+}
+
+.recovery > div, .recovery > p {
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px 0;
+    font-size: 1.4em;
+    display: none;
+}
+
+.recovery > div:first-child, .recovery > p {
+    display: block;
+}
+
+.recovery > div > p {
+    font-size: 1.16em;
+    padding-bottom: .3em;
+    border-bottom: 1px solid #dedede;
+}
+
+.recovery > div > ul, .recovery > div > div {
+    padding: 50px;
+    border-bottom: 1px solid #dedede;
+}
+
+.recovery > div.recovery04 > ul, .recovery > div.recovery03 > div {
+    padding: 100px 0 100px 50px;
+}
+
+.reliTips{
+    position:relative;
+    top:-36px;
+    color:#696969;
+    padding-left:95px;
+}
+.reliTips>li{
+    margin-bottom:.3em;
+}
+.recovery > div > ul > li {
+    margin-bottom: 1.6em;
+    position: relative;
+}
+
+.recovery > div > ul > li > i {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    color: #999;
+}
+
+.recovery > div > ul > li > i:after, .recovery03 i:after {
+    content: "：";
+}
+
+.recovery > div > ul > li > label {
+    margin-right: 3em;
+}
+
+.recovery > div > ul > li > label > input[type=radio] {
+    display: none;
+}
+
+.recovery > div > ul > li input[type=text], .recovery > div > ul > li input[type=password] {
+    width: 300px;
+    padding: .3em;
+}
+
+.recovery > div > ul > li input[type=text] + b, .recovery > div > ul > li input[type=password] + b, .recovery03 b {
+    color: red;
+    margin-left: .8em;
+    font-weight: normal
+}
+
+.recovery > div > ul > li input[type=text] + b:before, .recovery > div > ul > li input[type=password] + b:before, .recovery03 b:before {
+    content: "*";
+}
+
+input[name=numberE] {
+    padding: .3em
+}
+
+.paddLf10 {
+    padding-left: 100px
+}
+
+.recovery > div > ul > li > label > i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #2A8FD5;
+    border-radius: 50%;
+    position: relative;
+    bottom: -4px;
+    margin-right: 10px;
+}
+
+.recovery > div > ul > li > label > input[type=radio]:checked + i:after {
+    width: 10px;
+    height: 10px;
+    content: "";
+    display: block;
+    background-color: #2A8FD5;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+}
+
+.imgNum {
+    margin-top: -1em;
+}
+
+.imgNum span {
+    color: #999;
+}
+.imgNum a{color:#2A8FD5;text-decoration: underline;cursor:pointer}
+.imgNum a:hover{color:red;}
+.imgNum img {
+    display: block;
+    width: 130px;
+    height: 50px;
+}
+
+.userId b {
+    font-size: 1.4em;
+}
+
+.reType > i {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.reType label, .reType b {
+    display: block;
+    margin-bottom: .6em;
+}
+
+.reType b {
+    display: none
+}
+
+.recovery > p {
+    padding: 0 0 60px 0
+}
+
+.recoverBt span {
+    background-color: #2A8FD5;
+    color: #fff;
+    display: inline-block;
+    padding: 8px 50px;
+    cursor: pointer;
+    margin-left: 150px;
+}
+
+.recoverBt span.backBt, .recoverBt span.buyOk {
+    display: none
+}
+.recovery > div.recovery05>div{
+    text-align: center;
+    padding-top:240px;
+    background: url("../../images/right.png") no-repeat center 100px;
+    background-size:120px ;
+    font-size:1.4em;
+}
+.recovery05>div>a{
+    color:#2A8FD5;
+    text-decoration: underline;
+    margin-left:10px;
+}
+/*END找回密码*/
+
+@media screen and (max-width: 720px) {
+    body, html {
+        font-family: sans-serif;
+    }
+
+    .loginheader, .logincontent, .loginrg {
+        width: 100%
+    }
+
+    .loginfooter, .loginlf, .loginheader span.pagetitle, .loginheader span.bao1010tel {
+        display: none
+    }
+
+    .loginnav span {
+        cursor: inherit;
+        border-color: #ccc;
+    }
+
+    .loginnav {
+        border: 0
+    }
+
+    .loginheader {
+        text-align: center
+    }
+
+    .imgnumber > img, .smsnumber > span {
+        height: 39px;
+        line-height: 39px;
+    }
+
+    .bao1010logo {
+        margin: 0
+    }
+
+    .loginbox {
+        background-color: inherit;
+        height: auto
+    }
+
+    .loginrg {
+        right: 0;
+        position: static;
+        top: 0
+    }
+
+    .signup {
+        font-size: 1.6em
+    }
+
+    /*多用户*/
+    .loginuser {
+        width: 70%;
+        height: 80%;
+        top: 7%;
+        left: 10%;
+        margin: 0;
+        padding: 5%
+    }
+
+    .loginuser p {
+        margin-top: 30px;
+    }
+
+    .userids {
+        margin-top: 30px;
+    }
+}

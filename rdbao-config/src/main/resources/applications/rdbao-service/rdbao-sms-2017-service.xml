@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd    
+    http://www.springframework.org/schema/tx    
+    http://www.springframework.org/schema/tx/spring-tx-4.2.xsd   
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context-4.2.xsd   
+    http://www.springframework.org/schema/mvc   
+    http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+    http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<import
+		resource="classpath*:applications/rdbao-persistence/rdbao-sms-2017-data.xml" />
+	<import resource="classpath*:applications/rdbao-cache/rdbao-sms-2017-redis.xml" />
+	<import
+		resource="classpath*:conf/provider/${publish.evn}/com/renke/rdbao/services/rdbao_sms_2017/service/*_provider.xml" />
+	<import
+		resource="classpath*:conf/provider/${publish.evn}/com/renke/rdbao/services/cache/rdbao_sms_2017/service/*_provider.xml" />
+
+
+	<!-- <bean id="config" -->
+	<!-- class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!-- <property name="order" value="1" /> -->
+	<!-- <property name="ignoreUnresolvablePlaceholders" value="true" /> -->
+	<!-- <property name="locations"> -->
+	<!-- <list> -->
+	<!-- <value>classpath*:properties/${publish-dev}/common_config.properties -->
+	<!-- </value> -->
+	<!-- <value>classpath*:properties/${publish-dev}/jdbc.properties</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<aop:aspectj-autoproxy />
+	<!-- 自动扫描的包名 -->
+	<context:component-scan
+		base-package="com.renke.rdbao.services.rdbao_sms_2017.service.interceptor">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Component" />
+	</context:component-scan>
+
+
+	<!-- 事务管理 -->
+	<bean id="rdbaoSms2017TransactionManager4service"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="rdbaoSms2017DataSource" />
+	</bean>
+
+	<tx:advice id="rdbaoSms2017TxAdvice4service"
+		transaction-manager="rdbaoSms2017TransactionManager4service">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="generate*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="cancle*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="register*" propagation="REQUIRED" />
+			<tx:method name="send*" propagation="REQUIRED" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- service配置事务 -->
+	<aop:config>
+		<aop:pointcut id="rdbaoSms2017InterceptorPointCuts4service"
+			expression="execution(* com.renke.rdbao.services.rdbao_sms_2017.service.*.*(..))" />
+		<aop:advisor advice-ref="rdbaoSms2017TxAdvice4service"
+			pointcut-ref="rdbaoSms2017InterceptorPointCuts4service" />
+	</aop:config>
+
+</beans>   

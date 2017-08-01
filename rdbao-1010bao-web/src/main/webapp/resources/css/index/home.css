@@ -1,0 +1,162 @@
+.borBacPadd {
+    padding:24px 48px;
+}
+.main{
+    left:16px;
+    right:16px;
+}
+.main:after,.userHead:after,.NotaryTj>ul:after{
+    content: "";
+    display: block;
+    clear:both;
+    width:100%;
+}
+.homeBox{
+    width:80%;
+    float:left;
+    padding:32px 16px 32px 0;x
+}
+.rightContent{
+    width:20%;
+    float:left;
+    padding-top:32px
+}
+.NotaryTj,.news{
+    margin-top:16px;
+}
+.userHead,.banner{
+    height:168px;
+}
+.userHead>div{
+    float: left;
+    margin-right:5%;
+}
+.userHead>div:last-child,.NotaryTj li:last-child{
+    margin-right:inherit;
+}
+.userID{
+    width:20%;
+}
+.userImg{
+    width:68px;
+    height:68px;
+    background-color:#efefef;
+    border-radius: 50%;
+    overflow: hidden;
+    position:relative;
+}
+.userImg *{
+    width:80%;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    margin-left:-40%;
+}
+.userID>p{
+    margin-top:.6em;
+    color:#898989;
+    font-weight:bold;
+}
+.userID article{
+    margin-top:.2em;
+
+}
+.userID a{
+    color:#2A8FD5;
+}
+.userMoney,.evidNumber{
+    width:35%;
+}
+.userMoney>h2,.evidNumber>h2{
+    font-size:.8em;
+}
+.userMoney>p,.evidNumber>p{
+    height:82px;
+}
+.userMoney>p>span,.evidNumber>p>span{
+    line-height: 82px;
+    font-size:3em;
+}
+.userMoney>p:after,.evidNumber>p:after{
+    content:"元";
+    color:#494949;
+    margin-left:.6em;
+}
+.evidNumber>p:after{
+    content:"条";
+}
+.userMonBt>a,.evidNotary>a{
+    color:#2A8FD5;
+}
+.userMonBt>a:hover,.evidNotary>a:hover,.userID a:hover,.NotaryTj>h2>a:hover{
+    text-decoration: underline;
+}
+.evidNotary>a{
+    margin:0 .4em;
+}
+.userMonBt>a:last-child,.CchSize a{
+    color:#fff;
+    background-color: #2A8FD5;
+    padding:.3em 1.8em;
+    margin-left:1em;
+    transition:all .5s
+}
+.userMonBt>a:last-child:hover,.CchSize a:hover{
+    background-color: #26518f;
+    text-decoration: none;
+}
+.NotaryTj>h2{
+    border-bottom:1px solid #ededed;
+    padding-bottom:.4em;
+    font-size:1.13em;
+    color:#323232;
+}
+.NotaryTj>h2>a{
+    color:#2A8FD5;
+    font-size:.9em;
+    float:right;
+    cursor:pointer;
+}
+.NotaryTj>ul{
+    width:100%;
+    margin-top:24px;
+}
+.NotaryTj li{
+    width:31%;
+    margin-right:3%;
+    float: left;
+}
+.NotaryTj li h2{
+    font-size:1em;
+    color:#323232;
+}
+.NotaryTj li article{
+    margin-top:1em;
+}
+.NotaryTj li article span{
+    display: block;
+    margin-bottom:.6em;
+}
+.NotaryTj li article span i{
+    display: inline-block;
+    width:80px;
+    color:#989898;
+
+}
+.TjNumber span:after,.CchSize span:after{
+    content: "条";
+    margin-left:.8em;
+    color:#696969;
+}
+.CchSize span:after{
+    content:"MB"
+}
+
+.CchSize a{
+    margin-left:0;
+}
+.thNotary a{
+    font-size:2.5em;
+    color:#2A8FD5;
+    margin-right:.4em;
+}

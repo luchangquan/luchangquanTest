@@ -1,0 +1,320 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.renke</groupId>
+	<artifactId>rdbao-npp-download-web</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>rdbao-npp-download-web Maven Webapp</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.7</java-version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+		<org.springframework.version>4.2.3.RELEASE</org.springframework.version>
+		<junit.version>4.11</junit.version>
+		<jackson.version>2.5.1</jackson.version>
+		<servlet-api.version>3.0.1</servlet-api.version>
+		<jsp-api.version>2.2</jsp-api.version>
+		<jstl.version>1.2</jstl.version>
+		<slf4j.version>1.6.6</slf4j.version>
+		<log4j.version>1.2.14</log4j.version>
+		<javax.mail.version>1.4.1</javax.mail.version>
+		<org.jdom.version>1.1.3</org.jdom.version>
+		<com.alibaba-fastjson.version>1.2.6</com.alibaba-fastjson.version>
+		<com.qiniu.version>7.1.0</com.qiniu.version>
+		<dom4j.verion>1.6.1</dom4j.verion>
+		<commons-io.version>2.2</commons-io.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<org.json.version>20090211</org.json.version>
+		<org.apache.httpcomponents.version>4.3.5</org.apache.httpcomponents.version>
+		<org.apache.httpcomponents-httpcore.version>4.4.1</org.apache.httpcomponents-httpcore.version>
+		<org.apache.httpcomponents-httpmime.version>4.4.1</org.apache.httpcomponents-httpmime.version>
+		<org.noggit.version>0.6</org.noggit.version>
+		<org.codehaus.woodstox-stax2-api.version>3.1.4</org.codehaus.woodstox-stax2-api.version>
+		<org.codehaus.woodstox-woodstox-core-asl.version>4.4.1</org.codehaus.woodstox-woodstox-core-asl.version>
+		<org.apache.zookeeper.version>3.4.6</org.apache.zookeeper.version>
+		<commons-httpclient.version>3.1</commons-httpclient.version>
+		<com.shcm.version>1.0</com.shcm.version>
+		<org.mybatis.version>3.3.0</org.mybatis.version>
+		<org.mybatis-spring.version>1.2.3</org.mybatis-spring.version>
+		<mysql.version>5.1.29</mysql.version>
+		<com.alibaba-druid.version>1.0.2</com.alibaba-druid.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
+		<org.apache.activemq.version>5.7.0</org.apache.activemq.version>
+		<cglib.version>2.2</cglib.version>
+		<org.aspectj.version>1.6.12</org.aspectj.version>
+		<commons-fileupload.version>1.3</commons-fileupload.version>
+		<com.qq-QQSdk4J.version>1.0</com.qq-QQSdk4J.version>
+		<com.github.pagehelper.version>4.0.3</com.github.pagehelper.version>
+		<com.github.jsqlparser.version>0.9.4</com.github.jsqlparser.version>
+		<tk.mybatis.version>3.3.9</tk.mybatis.version>
+		<com.qiniu.live.version>1.5.4</com.qiniu.live.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<!-- <org.bouncycastle.version>1.54</org.bouncycastle.version> -->
+		<org.bouncycastle.version>1.56</org.bouncycastle.version>
+		<spring-data-redis.version>1.7.6.RELEASE</spring-data-redis.version>
+		<redis.clients.version>2.9.0</redis.clients.version>
+		<!-- <spring-data-redis.version>1.0.2.RELEASE</spring-data-redis.version> -->
+		<!-- <redis.clients.version>2.1.0</redis.clients.version> -->
+		<org.apache.solr.version>5.3.1</org.apache.solr.version>
+		<org.springframework.security.version>3.2.9.RELEASE</org.springframework.security.version>
+		<com.google.zxing.version>3.3.0</com.google.zxing.version>
+		<org.jsoup.version>1.9.2</org.jsoup.version>
+		<joda-time.version>2.9.7</joda-time.version>
+		<com.google.guava.version>20.0</com.google.guava.version>
+		<com.google.api-client.version>1.22.0</com.google.api-client.version>
+		<dubbo.version>2.8.4</dubbo.version>
+		<jetty.version>6.1.25</jetty.version>
+		<zkclient.version>0.1</zkclient.version>
+		<org.apache.cxf.version>3.0.0</org.apache.cxf.version>
+		<org.apache.poi.version>3.9</org.apache.poi.version>
+		<net.sf.json-lib.version>2.4</net.sf.json-lib.version>
+		<com.aliyun.aliyun-java-sdk-core.version>3.0.9</com.aliyun.aliyun-java-sdk-core.version>
+		<com.aliyun.aliyun-java-sdk-sms.version>3.0.0-rc1</com.aliyun.aliyun-java-sdk-sms.version>
+		<org.apache.commons.commons-email.version>1.4</org.apache.commons.commons-email.version>
+	</properties>
+
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.renke</groupId>
+			<artifactId>rdbao-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+			<version>${servlet-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
+			<version>${jsp-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>${cglib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+
+		<!-- log -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${com.alibaba-fastjson.version}</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.bouncycastle</groupId> -->
+		<!-- <artifactId>bcprov-jdk15on</artifactId> -->
+		<!-- <version>${org.bouncycastle.version}</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>${org.bouncycastle.version}</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.bouncycastle</groupId> -->
+		<!-- <artifactId>bcpg-jdk15on</artifactId> -->
+		<!-- <version>${org.bouncycastle.version}</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.bouncycastle</groupId> -->
+		<!-- <artifactId>bcprov-jdk16</artifactId> -->
+		<!-- <version>1.46</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>rdbao-npp-download-web</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>${java-version}</source>
+						<target>${java-version}</target>
+						<compilerArgument>-Xlint:all</compilerArgument>
+						<showWarnings>true</showWarnings>
+						<showDeprecation>true</showDeprecation>
+						<encoding>utf8</encoding>
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-resources-plugin</artifactId>
+										<versionRange>[2.0,)</versionRange>
+										<goals>
+											<goal>resources</goal>
+											<goal>testResources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<publish.evn>prod</publish.evn>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<publish.evn>test</publish.evn>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>dev</id>
+			<properties>
+				<publish.evn>dev</publish.evn>
+			</properties>
+			<!-- 默认激活本环境 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+</project>

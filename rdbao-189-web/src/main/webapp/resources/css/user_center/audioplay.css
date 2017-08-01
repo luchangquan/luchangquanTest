@@ -1,0 +1,144 @@
+audio{
+	display:none;
+}
+.audiojs audio {
+    position: absolute;
+    left: -1px;
+}
+
+.audiojs {
+    width: 914px;
+    height: 60px;
+    overflow: hidden;
+    margin:0 auto;
+    font-family: monospace;
+    font-size: 12px;
+    background: url(../../script/media/audiojs/rdp-t-bj.png) no-repeat left bottom;
+}
+
+.audiojs .scrubber {
+    position: relative;
+    width: 914px;
+    height: 26px;
+    overflow: hidden;
+    background: url(../../script/media/audiojs/rdp-bj.png) no-repeat;
+}
+
+.audiojs .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 24px;
+    z-index: 1;
+    background: url(../../script/media/audiojs/rdp-d.png) no-repeat right;
+}
+
+.audiojs .loaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 0;
+}
+
+.audiojs .play-pause {
+    width: 20px;
+    height: 38px;
+    overflow: hidden;
+    margin-left: 30px;
+    float: left;
+    margin-top: -2px;
+}
+
+.audiojs p {
+    display: none;
+    width: 25px;
+    height: 40px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.audiojs .play {
+    display: block;
+}
+
+.audiojs .time {
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    color: #ddd;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    margin-top: -2px;
+    padding: 0 6px 0 12px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.audiojs .time em {
+    padding: 0 2px 0 0;
+    color: #f9f9f9;
+    font-style: normal;
+}
+
+.audiojs .time strong {
+    padding: 0 0 0 2px;
+    font-weight: normal;
+}
+
+.audiojs .error-message {
+    float: left;
+    display: none;
+    margin: 0 10px;
+    height: 38px;
+    width: 914px;
+    overflow: hidden;
+    line-height: 38px;
+    white-space: nowrap;
+    color: #fff;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -icab-text-overflow: ellipsis;
+    -khtml-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+}
+
+.audiojs .error-message a {
+    color: #eee;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #999;
+    white-space: pre-wrap;
+}
+
+.audiojs .play {
+    background: url(../../script/media/audiojs/rdp-t-an.png) no-repeat -36px;
+}
+
+.audiojs .pause {
+    background: url(../../script/media/audiojs/rdp-t-an.png) no-repeat;
+    display: block;
+}
+
+.playing .play {
+    display: none;
+}
+
+.playing .pause {
+    display: block;
+}
+
+.playing .time {
+    display: block;
+}
+@media screen and (max-width: 1600px) {
+    .audiojs,.audiojs .scrubber ,.audiojs .error-message {
+          width:814px;
+    }
+}
+@media screen and (max-width: 1440px) {
+    .audiojs,.audiojs .scrubber ,.audiojs .error-message {
+        width:714px;
+    }
+}

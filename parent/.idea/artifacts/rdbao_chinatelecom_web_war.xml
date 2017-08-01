@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rdbao-chinatelecom-web:war">
+    <output-path>$PROJECT_DIR$/../rdbao-chinatelecom-web/target</output-path>
+    <root id="archive" name="rdbao-chinatelecom-web.war">
+      <element id="artifact" artifact-name="rdbao-chinatelecom-web:war exploded" />
+    </root>
+  </artifact>
+</component>

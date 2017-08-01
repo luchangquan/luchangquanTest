@@ -1,0 +1,158 @@
+.ltdInfoBox,.userInfoBox,.passInfo{
+    margin-bottom:32px;
+    padding:48px 110px;
+}
+.info-title{
+    font-size:1.3em;
+    color:#696969;
+    margin-bottom:32px;
+}
+.ltdInfoBox li,.userInfoBox li,.passInfo>ul>li,.passwordBtBox,.telephoneXiList li,.emailXiList li{
+    padding-left:6em;
+    margin-bottom:24px;
+}
+.telXG,.emailXG{
+    color:#219fd8;cursor:pointer
+}
+.telXG:hover,.emailXG:hover{
+    text-decoration: underline;
+}
+.ltdInfoBox li span,.userInfoBox li span,.passInfo li span,.telephoneXiList li i,.emailXiList li i{
+    color:#989898;
+    margin-right:24px;
+    width:70px;
+    display: inline-block;
+}
+.ltdInfoBox li input,.userInfoBox li input{
+    border:none;
+    color:#494949;
+    width:340px;
+}
+.passTips{
+    padding-bottom:24px;
+}
+.passTips li{
+    color:#696969;
+    margin-bottom:8px;
+}
+.passInfo li b {
+    color: red;
+    margin-left: .8em;
+    font-weight: normal
+}
+.passInfo input[type=password],.telephoneXiList li input,.emailXiList li input{
+    border:1px solid #dedede;
+    padding:6px 4px;
+    width:340px;
+}
+#passStrength {
+    display: inline-block;
+    height: 10px;
+    width: 130px;
+    border: 1px solid #ededed;
+    position: relative;
+    top: 0;
+    margin:0 .5em 0 1em;
+}
+
+.ok:before, .ok:after, .middle:before, .middle:after, .weak:before {
+    content: "";
+    display: inline-block;
+    width: 31%;
+    height: 10px;
+    border-right: 5px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.ok {
+    background-color: green;
+}
+
+.ok:after, .middle:after {
+    border-right: none;
+    border-left: 5px solid #fff;
+    right: 0;
+    left: inherit;
+}
+
+.middle {
+    background: orange;
+}
+
+.middle:after {
+    background-color: #fff;
+}
+
+.weak:before {
+    background-color: red;
+}
+.passwordBt,.telephoneBt,.telZcBt,.emailBt,.emailZcBt{
+    margin-left:94px;
+    line-height: 32px;
+    border: 1px solid #ccc;
+    color: #fff;
+    background-color: #219fd8;
+    cursor: pointer;
+    padding: 0 60px;
+    border-radius: 3px;
+    transition:all .5s;
+}
+.passwordBt:hover,.telephoneBt:hover,.emailBt:hover,.emailZcBt:hover{
+    background-color: #004796;
+}
+/*修改手机 邮箱*/
+.infoTelMail{
+    background-color: #fff;
+}
+.infoTelMailTitle {
+    background-color:#ccc
+}
+.telephoneXiBox,.emailXiBox{
+    width:54%;
+    margin:0 auto;
+    padding:60px 0;
+    font-size:1.4em;
+}
+.telephoneXiList>p,.emailXiList>p{
+    color: #696969;
+    margin-bottom: 2em;
+    font-size: 1.13em;
+}
+.telephoneXiList li,.emailXiList li{
+    padding:0;
+}
+.telephoneXiList li i,.emailXiList li i{
+    width:86px;
+    margin-right:12px;
+}
+.telephoneXiList li input,.emailXiList li input{
+    width:250px;
+}
+#time{
+    margin-left:10px;
+    padding:.3em 10px .3em 10px;
+    border:1px solid #ededed;
+    color:#999;
+    background-color: #f2f2f2;
+}
+#time.txnum{
+    color: #ffffff;
+    background-color: #2A8FD5;
+    border-color:#2A8FD5;
+    cursor:pointer
+}
+.telephoneTips,.emailTips{
+    color: red;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 96px;
+}
+.telephoneBt,.telZcBt,.emailBt,.emailZcBt{
+    margin-left:98px;
+}
+.telephoneXiBox>h1,.emailXiBox>h1{
+    font-size:2.5em;
+    color:#989898
+}

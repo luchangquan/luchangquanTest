@@ -1,0 +1,1562 @@
+/*用户中心*/
+#all-call-number, #all-call-time {
+    width: 50%;
+    height: 420px;
+    display: inline-block;
+    padding: 28px 50px;
+}
+
+/*企业概况*/
+.businessInfo-box {
+    width: 90%;
+    margin: 0 auto
+}
+
+.businessName, .businessStat {
+    width: 40%;
+    display: inline-block;
+    float: left;
+}
+
+.businessName {
+    margin-right: 15%;
+}
+
+.businessName > h2, .businessStat > h2, .businessNumber h2, .businesBill h2, .notaryList h2, .businesBillCon h2, .tele-news h2 {
+    color: #2A8FD5;
+    margin-bottom: .6em;
+}
+
+.businessName > ul, .businessStat > ul {
+    box-shadow: 1px 2px 5px #999;
+    border: 1px solid #dedede;
+    min-height: 360px;
+    padding: 2em 3em;
+    color: #666;
+}
+
+.businessName > ul > li, .businessStat > ul > li {
+    margin-bottom: 1em
+}
+
+.businessName > ul i, .businessStat > ul i {
+    color: #999
+}
+
+.businessName > ul > li input {
+    border: 1px solid #2A8FD5;
+    padding: .1em .3em;
+    min-width: 180px;
+}
+
+.businessName > ul > li input:disabled {
+    border: transparent;
+    background-color: transparent;
+}
+
+.businessName > ul a {
+    display: block;
+    background-color: #badff7;
+    border: 1px solid #2A8FD5;
+    line-height: 28px;
+    width: 40%;
+    text-align: center;
+    margin: 2em 0 0 0;
+    transition: all .4s;
+}
+
+.businessName > ul a:hover {
+    background-color: #2A8FD5;
+    color: #fff;
+}
+
+.businessNumber {
+    clear: both;
+    display: block;
+    padding-top: 3em;
+    margin-bottom: 2em
+}
+
+.businessNumber table, .businesBill table, .notaryList table, .busiConTit {
+    box-shadow: 1px 2px 5px #999;
+    border: 1px solid #dedede;
+}
+
+.businessNumber table tr td {
+    position: relative;
+}
+
+.businessNumber table tr td:nth-child(5):after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    border-left: 1px solid #dedede;
+    height: 100%;
+}
+
+.businessNumber thead, .businessNumber thead tr:hover, .businesBill thead, .businesBill thead tr:hover, .notaryList thead, .notaryList thead tr:hover, #Notary01 thead, #Notary01 thead tr:hover,.down01 thead,.down01 thead tr:hover{
+    background-color: #f5f5f5;
+    font-weight: bold
+}
+
+.businessNumber tbody tr:nth-child(even), .businesBill tbody tr:nth-child(even), .call-content tr:nth-child(even), .statistiDay tbody tr:nth-child(even), .notaryList tbody tr:nth-child(even), #Notary01 tbody tr:nth-child(even),.down01 tbody tr:nth-child(even){
+    background-color: #fbfbfb;
+}
+
+/*企业概况*/
+/*月度账单*/
+.businesBill, .notaryList {
+    width: 90%;
+    margin: 2em auto
+}
+
+.businesBillCon {
+    width: 80%;
+    margin: 5em auto;
+}
+
+.busiCon p {
+    margin: 2em 0 1em 0;
+}
+
+.busiConTit {
+    padding: 3em 0 3em 6em;
+}
+
+.busiConTit li {
+    margin-bottom: .8em;
+}
+
+.busiConTit li i {
+    color: #999;
+    display: inline-block;
+    width: 9em;
+}
+
+.busiConTit li a {
+    color: #2A8FD5;
+    margin-left: 5em;
+}
+
+/*END 月度账单*/
+/*
+黑白名单
+*/
+/*提示框样式开始*/
+#alertbox {
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+}
+
+.alertbk {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    z-index: 100;
+    filter: Alpha(Opacity=30); /*3-17*/
+}
+
+.alertcontent {
+    z-index: 110;
+    position: absolute;
+    background-color: #f5f5f5;
+    box-shadow: 4px 4px 6px #666;
+    width: 550px;
+    height: 350px;
+    left: 50%;
+    top: 50%;
+    margin-left: -275px;
+    margin-top: -175px;
+}
+
+.alertcontit {
+    height: 72px;
+    width: 100%;
+    background-color: #2A8FD5;
+    position: relative;
+}
+
+.alertcontit i {
+    font-size: 2em;
+    color: #FFF;
+    position: absolute;
+    left: 48px;
+    top: 20px;
+}
+
+.alertcontit span {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    background: url(../../images/closes.png) no-repeat center center;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+.alertconbox {
+    height: 278px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.alertconbox p {
+    margin-top: 70px;
+    color: #7f7f7f;
+    font-size: 1.66em;
+    padding: 0 48px;
+    text-align: left;
+}
+
+.alertconbox p i {
+    display: block;
+    font-size: .8em;
+    margin-top: 15px;
+    line-height: 1.6em
+}
+
+.alertconbox a {
+    margin-top: 42px;
+    color: #7f7f7f;
+    line-height: 35px;
+    font-size: 1.3em;
+    display: inline-block;
+    height: 35px;
+    padding-right: 40px;
+    padding-left: 40px;
+    border: 1px solid #7f7f7f;
+    cursor: pointer;
+}
+
+.alertconbox a:hover, .alertconbox a.buycz {
+    color: #fff;
+    border-color: #fff;
+    background-color: #2A8FD5;
+}
+
+/*提示框样式结束*/
+.telephone-box {
+    width: 80%;
+    margin: 3em auto;
+}
+
+.contactbox {
+    width: 100%;
+    height: 200px;
+}
+
+.contactbox > li {
+    width: 28%;
+    height: 160px;
+    float: left;
+    margin: 20px 2% 0 2%;
+    border: 1px solid #bdbdbd;
+    text-align: center;
+    cursor: pointer
+}
+
+.contactbox > li.conl {
+    border: 2px solid #3083eb;
+    background: url(../../images/contast/dq-x.png) no-repeat right top;
+}
+
+.contactbox > li > i {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    background: center center no-repeat;
+    margin-top: 15px;
+}
+
+.contactbox > li input[type=radio], .contact > li span i.listok {
+    display: none;
+}
+
+.contactbox > li#all > i {
+    background-image: url(../../images/contast/all-c0.png)
+}
+
+.contactbox > li#black > i {
+    background-image: url(../../images/contast/black0.png)
+}
+
+.contactbox > li#white > i {
+    background-image: url(../../images/contast/white0.png)
+}
+
+.contactbox > li.conl#all > i {
+    background-image: url(../../images/contast/all-c.png)
+}
+
+.contactbox > li.conl#black > i {
+    background-image: url(../../images/contast/black.png)
+}
+
+.contactbox > li.conl#white > i {
+    background-image: url(../../images/contast/white.png)
+}
+
+.contactbox > li > b {
+    display: block;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 5px 0 3px 0
+}
+
+.contactbox > li.conl > b {
+    color: #3083eb
+}
+
+.contactbox > li > p {
+    font-size: .8em;
+    color: #999
+}
+
+.tele-title {
+    padding: 2em 0 .8em 0;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.tele-title i {
+    color: #1e8bdd;
+    display: inline-block;
+    float: right;
+    font-size: .9em
+}
+
+.addle {
+    padding-left: 20px;
+    margin-left: 12px;
+    background: url(../../images/contast/add.png) no-repeat left center;
+    cursor: pointer;
+    color: #1e8bdd
+}
+
+.seach {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    background: url(../../images/contast/seachm.png) no-repeat left center;
+    cursor: pointer
+}
+
+.seach:hover {
+    background-image: url(../../images/contast/seach.png);
+}
+
+.allcont {
+    cursor: pointer;
+    margin-right: 1em
+}
+
+.textbox {
+    margin-top: -5px;
+    position: relative
+}
+
+.textbox input {
+    border: 1px solid #bdbdbd;
+    padding: 5px 22px 5px 5px;
+    width: 10em;
+}
+
+.contact {
+    width: 97%;
+    margin-left: 3%;
+}
+
+.back_ms {
+    display: none
+}
+
+.contact-tit {
+    border-bottom: 1px solid #bdbdbd;
+    padding: 20px 0 5px 0;
+    margin-left: 3%
+}
+
+.contact-tit span {
+    display: inline-block;
+    width: 33%;
+}
+
+.contact-tip {
+    text-align: center;
+    font-size: 1.2em;
+    color: #999;
+    padding: 30px 0 20px 0;
+}
+
+.contact > li {
+    border-bottom: 1px solid #bdbdbd;
+    padding: 10px 0 5px 0;
+}
+
+.contact > li input {
+    border: 0;
+    width: 28%;
+    margin-right: 5%;
+    padding: 5px 0;
+}
+
+.contact > li.edit input {
+    border: 1px solid #bdbdbd;
+    padding: 5px 2px;
+    width: 26%;
+}
+
+.contact > li span i {
+    color: #1e8bdd;
+    cursor: pointer;
+    margin-right: 18px;
+}
+
+#alertcon {
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+}
+
+.conadd, .conaddtip {
+    margin-top: 50px
+}
+
+.conadd li {
+    margin-bottom: 12px;
+}
+
+.addtips {
+    color: red;
+    height: 16px;
+}
+
+.conadd li input {
+    border: 1px solid #bdbdbd;
+    padding: 5px;
+    width: 180px
+}
+
+.conaddtip b {
+    display: block;
+    padding-top: 20px;
+    font-size: 2em;
+}
+
+/*黑白名单*/
+/*
+END 用户中心
+*/
+.downBox{
+    display:none;
+    width:45px;
+    position:fixed;
+    left:0;
+    bottom:30%;
+    z-index: 1000;
+    padding:45px 0 10px 0;
+    background:#fff url("../../images/downbox.png") no-repeat center 10px;
+    background-size:35px;
+    border:1px solid #2A8FD5;
+    box-shadow: 0 0 8px #666;
+    cursor:pointer;
+    transition:all .5s;
+    text-align: center;
+    font-size:1.4em;
+}
+.downBox:hover{
+    width:55px;
+    padding:55px 0 10px 0;
+    background-size:45px;
+    background-color: rgba(255, 255, 255, .7);
+    font-size:1.6em;
+    color:#2A8FD5;
+}
+.downBox span{
+    display: block;
+    font-size:12px;
+    color:red;
+}
+.downBox span:before{
+    content: "(";
+}
+.downBox span:after{
+    content:")"
+}
+/*
+通话记录
+*/
+#NotaryBox,.callDown,.emailIdIn {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+    display: none;
+}
+
+.NotaryCon,.downCon,.emailBox {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 2px 2px 6px #666;
+    width: 60%;
+    height: 80%;
+    left: 20%;
+    top: 10%;
+}
+
+.NotaryCon > p,.downCon>p,.emailBox>p {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 20px;
+    background-color: #2A8FD5;
+    color: #fff;
+    font-size: 1.6em;
+}
+
+.NotaryClose,.downConClose,.emailClose {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 18px;
+    cursor: pointer
+}
+
+.NotaryClose:before,.downConClose:before,.emailClose:before {
+    content: "\2716";
+}
+
+.Notitle {
+    width: 80%;
+    margin: 42px auto 0 auto;
+    height: 48px;
+    line-height: 48px;
+}
+
+.Notitle > li {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+    font-size: 1.4em;
+    position: relative
+}
+
+
+.Notitle > li:after {
+    content: "\003E";
+    font-size: 1.4em;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.Notitle > li:last-child:after {
+    content: "";
+}
+
+.Notitle > li.ath {
+    color: #2A8FD5;
+}
+
+.NotaryLi,.downList,.emailBoxInfo {
+    position: absolute;
+    top: 90px;
+    bottom: 60px;
+    width: 100%;
+}
+.downList{
+    top:60px;
+}
+
+.NotaryLi > div,.downList>div,.emailBoxInfo {
+    width: 80%;
+    height: 100%;
+    display: none;
+    margin: 0 auto;
+    border: 1px solid #dedede;
+    font-size: 1.4em;
+}
+.emailBoxInfo{
+    display: block;
+    height:auto;
+    left:10%;
+}
+#Notary01,.downList>div.down01 {
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    display: block;
+}
+
+.delete {
+    color: #2A8FD5;
+    cursor: pointer
+}
+
+#Notary02, #Notary03 {
+    padding: 30px;
+}
+
+.orczxz:first-child {
+    margin-bottom: 2em;
+}
+
+.orczxz > p {
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.orczxz > ul {
+    width: 50%;
+    float: left;
+    padding-left: 14px;
+    color: #666
+}
+
+.orczxz > ul > li {
+    margin-bottom: .6em
+}
+
+.orczxz:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.oryysx {
+    padding-left: 10%
+}
+
+.oryysx label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.oryysx label input {
+    width: 50%;
+    padding: 3px 6px;
+}
+
+.oryysx label b {
+    color: #999;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+#Notary04 p {
+    text-align: center;
+    font-size: 1.2em;
+    padding-top: 300px;
+    background: url("../../images/right.png") no-repeat center 120px;
+    background-size: 140px;
+}
+
+#Notary04 p a {
+    color: #2A8FD5;
+}
+
+.NotaryBut,.downBut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    font-size: 1.4em;
+    padding-top: 20px;
+}
+.embdBT{
+    width:100%;
+    height: 60px;
+    font-size: 1.4em;
+    padding: 20px 0 0 94px;
+}
+
+.NotaryBut > span,.downBut>span,.embdBT>span {
+    display: none;
+    padding: 6px 3em;
+    margin: 0 1em;
+    background-color: #2A8FD5;
+    color: #fff;
+    cursor: pointer;
+    transition: all .6s;
+}
+.embdBT>span{
+    display: inline-block;
+    margin:0;
+}
+.NotaryBut > span:nth-child(2),.downBut>span:nth-child(1) {
+    display: inline
+}
+
+.NotaryBut > span:hover,.downBut>span:hover,.embdBT>span:hover {
+    background-color: #00469b
+}
+.down02,.emailBoxInfo{
+    padding:100px 80px 0 80px;
+}
+.emailYl,.emailNl{
+    font-size:1.13em;
+    margin-bottom:1em;
+    color:#494949;
+}
+.emailYl>b{
+    font-size:1.13em;
+    color:#383838;
+}
+
+
+.emailInput{margin-top:1.6em;}
+.emailInput>p,.emailBoxInfo>p{
+    margin-bottom:1em;
+}
+.emailInput>p>i,.emailBoxInfo>p>i{
+    width:120px;
+    text-align: right;
+    margin-right:10px;
+    color:#999;
+}
+.emailInput>p>input,.emailBoxInfo>p>input{
+    padding:.3em 6px .3em 6px;
+    width:260px;
+}
+#time,#time1{
+    margin-left:10px;
+    padding:.3em 10px .3em 10px;
+    border:1px solid #ededed;
+    color:#999;
+    background-color: #f2f2f2;
+}
+#time.txnum,#time1.txnum{
+    color: #ffffff;
+    background-color: #2A8FD5;
+    border-color:#2A8FD5;
+    cursor:pointer
+}
+/*播放器*/
+.audio-play {
+    width: 70%;
+    position: fixed;
+    bottom: 0;
+    left: 15%;
+    z-index: 1000;
+}
+
+.audioplayer {
+    height: 4em;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    border: 1px solid #222;
+    position: relative;
+    z-index: 1;
+    background: #333;
+}
+
+.audioplayer-mini {
+    width: 4em;
+    margin: 0 auto;
+}
+
+.audioplayer > div {
+    position: absolute;
+}
+
+.audioplayer-playpause {
+    width: 4em;
+    height: 100%;
+    text-align: left;
+    text-indent: -9999px;
+    cursor: pointer;
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.audioplayer:not(.audioplayer-mini) .audioplayer-playpause {
+    border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+.audioplayer-mini .audioplayer-playpause {
+    width: 100%;
+}
+
+.audioplayer-playpause:hover, .audioplayer-playpause:focus {
+    background-color: #222;
+}
+
+.audioplayer-playpause a {
+    display: block;
+}
+
+.audioplayer-stopped .audioplayer-playpause a {
+    width: 0;
+    height: 0;
+    border: 0.8em solid transparent;
+    border-right: none;
+    border-left-color: #fff;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.5em 0 0 -0.25em;
+}
+
+.audioplayer-playing .audioplayer-playpause a {
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.6em 0 0 -0.6em;
+}
+
+.audioplayer-playing .audioplayer-playpause a:before, .audioplayer-playing .audioplayer-playpause a:after {
+    width: 35%;
+    height: 100%;
+    background-color: #fff;
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.audioplayer-playing .audioplayer-playpause a:before {
+    left: 0;
+}
+
+.audioplayer-playing .audioplayer-playpause a:after {
+    right: 0;
+}
+
+.audioplayer-time {
+    width: 4.375em;
+    height: 100%;
+    line-height: 4em;
+    text-align: center;
+    z-index: 2;
+    top: 0;
+}
+
+.audioplayer-time-current {
+    border-left: 1px solid rgba(0, 0, 0, .25);
+    left: 4em;
+}
+
+.audioplayer-time-duration {
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    right: 4em;
+}
+
+.audioplayer-novolume .audioplayer-time-duration {
+    border-right: 0;
+    right: 0;
+}
+
+.audioplayer-bar {
+    height: 0.875em;
+    background-color: #222;
+    cursor: pointer;
+    z-index: 1;
+    top: 50%;
+    right: 8.875em;
+    left: 8.875em;
+    margin-top: -0.238em;
+}
+
+.audioplayer-novolume .audioplayer-bar {
+    right: 4.375em;
+}
+
+.audioplayer-bar div {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.audioplayer-bar-loaded {
+    background-color: #333;
+    z-index: 1;
+}
+
+.audioplayer-bar-played {
+    background: #007fd1;
+    z-index: 2;
+}
+
+.audioplayer-volume {
+    width: 4em;
+    height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, .25);
+    text-align: left;
+    text-indent: -9999px;
+    cursor: pointer;
+    z-index: 2;
+    top: 0;
+    right: 0;
+}
+
+.audioplayer-volume:hover, .audioplayer-volume:focus {
+    background-color: #222;
+}
+
+.audioplayer-volume-button {
+    width: 100%;
+    height: 100%;
+}
+
+.audioplayer-volume-button a {
+    width: 0.613em;
+    height: 0.675em;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    z-index: 1;
+    top: 48%;
+    left: 30%;
+}
+
+.audioplayer-volume-button a:before, .audioplayer-volume-button a:after {
+    content: '';
+    position: absolute;
+}
+
+.audioplayer-volume-button a:before {
+    width: 0;
+    height: 0;
+    border: 0.8em solid transparent;
+    border-left: none;
+    border-right-color: #fff;
+    z-index: 2;
+    top: 50%;
+    right: -0.35em;
+    margin-top: -0.8em;
+}
+
+.audioplayer:not(.audioplayer-muted) .audioplayer-volume-button a:after {
+    width: 0.613em;
+    height: 0.613em;
+    border: 0.25em double #fff;
+    border-width: 0.25em 0.25em 0 0;
+    left: 0.963em;
+    top: -0.063em;
+    border-radius: 0 0.938em 0 0;
+    transform: rotate(45deg);
+}
+
+.audioplayer-volume-adjust {
+    height: 12.25em;
+    cursor: default;
+    position: absolute;
+    left: 0;
+    right: -1px;
+    top: -9999px;
+    background: #333;
+}
+
+.audioplayer-volume:not(:hover) .audioplayer-volume-adjust {
+    opacity: 0;
+}
+
+.audioplayer-volume:hover .audioplayer-volume-adjust {
+    top: auto;
+    bottom: 100%;
+}
+
+.audioplayer-volume-adjust > div {
+    width: 40%;
+    height: 80%;
+    background-color: #222;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin: 30% auto 0;
+}
+
+.audioplayer-volume-adjust div div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #007fd1;
+}
+
+.audioplayer-novolume .audioplayer-volume {
+    display: none;
+}
+
+.audioplayer {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 1.25em rgba(0, 0, 0, .5);
+}
+
+.audioplayer-volume-adjust {
+    box-shadow: -2px -2px 2px rgba(0, 0, 0, .15), 2px -2px 2px rgba(0, 0, 0, .15);
+}
+
+.audioplayer-bar, .audioplayer-volume-adjust > div {
+    box-shadow: -1px -1px 0 rgba(0, 0, 0, .5), 1px 1px 0 rgba(255, 255, 255, .1);
+}
+
+.audioplayer-volume-adjust div div, .audioplayer-bar-played {
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, .5);
+}
+
+.audioplayer-playpause, .audioplayer-volume a {
+    filter: drop-shadow(1px 1px 0 #000);
+}
+
+.audioplayer, .audioplayer-volume-adjust {
+    background: linear-gradient(to bottom, #444, #222);
+}
+
+.audioplayer-bar-played {
+    background-color: #fff;
+}
+
+.audioplayer-volume-adjust div div {
+    background-color: #fff;
+}
+
+.audioplayer-bar, .audioplayer-bar div, .audioplayer-volume-adjust div {
+    border-radius: 4px;
+}
+
+.audioplayer {
+    border-radius: 2px;
+}
+
+.audioplayer-volume-adjust {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.audioplayer *, .audioplayer *:before, .audioplayer *:after {
+    transition: color .25s ease, background-color .25s ease, opacity .5s ease;
+}
+
+.date-tit, .callLog-con-box {
+    margin: 0 50px;
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
+    box-shadow: 0 0 3px #dedede;
+}
+
+.date-tit {
+    border-bottom: none;
+    height: 56px;
+    padding: 14px 0 0 20px;
+}
+
+.call-content-bt {
+    height: 48px;
+    padding: 10px 0 0 20px;
+}
+
+.date-ra {
+    display: inline-block;
+    margin-right: 18px;
+    float: right
+}
+
+.date-ra i, .call-content-bt span {
+    display: inline-block;
+    line-height: 28px;
+    padding: 0 1.8em;
+    border: 1px solid #dedede;
+    background-color: #fefefe;
+    font-size: 1.13em;
+    margin: 0 .4em;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.date-ra i:hover {
+    background-color: #badff7;
+    border: 1px solid #2A8FD5;
+}
+
+.date-ra input[name=date-r]:checked + i, .call-content-bt span:hover, .search-bt {
+    background-color: #2A8FD5;
+    color: #fff
+}
+
+.search {
+    display: inline-block;
+}
+
+.search input[type=text] {
+    height: 28px;
+    padding: 0 8px;
+}
+
+.search select {
+    border: 1px solid #cdcdcd;
+    height: 28px;
+    padding: 0 8px;
+    width: 80px;
+}
+
+.tel-box {
+    margin-right: 2em
+}
+
+.tel-box input {
+    width: 150px;
+}
+
+.start-da {
+    margin-right: 6px;
+}
+
+.end-da {
+    margin-left: 6px
+}
+
+.search-bt {
+    margin: 0 0 0 10px;
+    display: inline-block;
+    line-height: 28px;
+    padding: 0 2em;
+    cursor: pointer
+}
+
+.callLog-con-box, .statistic {
+    height: 590px;
+    position: relative;
+}
+
+.callLog-con-box {
+    font-size: 1.2em
+}
+
+.call-content-title, .statis-title {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.call-content-title tr, .statis-title tr {
+    font-weight: bold;
+}
+
+.call-content-con {
+    width: 100%;
+    height: 490px;
+    margin-top: 49px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.call-content-title tr, .statis-title tr {
+    background-color: #f3f3f3
+}
+
+.checkboz input, .date-ra input {
+    display: none
+}
+
+.checkboz i {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border: 1px solid #2A8FD5;
+    cursor: pointer;
+    position: relative
+}
+
+.checkboz input:checked + i:before {
+    content: "\2713";
+    font-size: 24px;
+    color: #2A8FD5;
+    position: absolute;
+    left: 1px;
+    top: -12px;
+}
+
+.call-play span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url("../../images/play.png") no-repeat center;
+    background-size: 100%;
+    transition: all .4s;
+    cursor: pointer
+}
+
+.call-play span:hover,.call-play span.play-on {
+    background-image: url("../../images/play-h.png");
+}
+
+.checkboz {
+    width: 5%
+}
+
+.call-type {
+    width: 6%
+}
+
+.call-play {
+    width: 7%
+}
+
+.th-time {
+    width: 10%
+}
+
+.hj-no, .hc-no, .ly-ks, .ly-js {
+    width: 15%
+}
+
+/*
+END 通话记录
+*/
+/*
+数据统计
+*/
+.main-right .date-tit {
+    margin: 0;
+    padding-left: 10px;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid #dedede;
+}
+
+.statistic {
+    padding-top: 1px;
+}
+
+.sta-name, .sta-num {
+    width: 10%;
+}
+
+.sta-time {
+    width: 14%
+}
+.sta-dis{width:2.5%}
+
+.statis-title .sta-time{width:13.5%}
+/*周期内日统计*/
+#statist-box, #statist-time {
+    width: 100%;
+    height: 480px;
+    padding: 20px 30px;
+}
+
+.statistiDay {
+    width: 100%;
+    height: 490px;
+    overflow: auto;
+}
+
+.statistiDay tr {
+    height: 64px
+}
+
+.statistiDay thead {
+    background-color: #f5f5f5
+}
+
+.fht-fixed-column .fht-tbody {
+    border-top: 1px solid #dedede
+}
+
+.statistiDay td {
+    padding-left: 10px;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+/*END 周期内日统计*/
+/*
+END 数据统计
+*/
+/*分页*/
+.page {
+    display: inline-block;
+    float: right;
+    margin-right: 30px
+}
+
+.page a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 16px;
+    padding: 3px 6px;
+    color: #666;
+    border: 1px solid #dfdfdf;
+    margin: 0 2px;
+}
+
+.page a:hover, .page a.onPage {
+    background: #0096ff;
+    color: #fff;
+    border: 1px solid #F3F3F3;
+}
+
+.page a.unclick, .page a.unclick:hover {
+    background: none;
+    border: 1px solid #eee;
+    color: #999;
+    cursor: default;
+}
+
+/*END 分页*/
+.mobiSearch {
+    display: none
+}
+
+@media screen and (max-width: 1024px) {
+    .NotaryCon {
+        width: 90%;
+        left: 5%
+    }
+
+    .NotaryLi > div {
+        width: 90%
+    }
+
+    .date-tit, .callLog-con-box {
+        margin: 0
+    }
+
+    .callLog-con-box {
+        height: 730px
+    }
+
+    .call-content-con {
+        height: 630px
+    }
+
+    .audio-play {
+        bottom: 46px;
+    }
+
+    .date-ra, #all-call-number, #all-call-time, .businessNumber {
+        display: none
+    }
+
+    .call-content-bt span {
+        padding: 0 .8em
+    }
+
+    .businessName, .businessStat {
+        width: 100%;
+        float: none;
+        padding-top: 1em;
+        margin-right:inherit;
+    }
+
+    .businessName > ul, .businessStat > ul {
+        min-height: inherit;
+    }
+}
+
+@media only screen and ( max-width: 720px ) {
+    .audio-play {
+        width: 90%;
+        left: 5%
+    }
+
+    .date-tit {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        height: auto;
+        width: 100%;
+        padding: 0
+    }
+
+    .tel-box {
+        display: block;
+        margin-bottom: .8em
+    }
+
+    .end-da {
+        margin: .8em 0 .8em 60px;
+        display: block
+    }
+
+    .mobiSearch {
+        display: block;
+        height: 24px;
+        border-bottom: 1px solid #2A8FD5;
+        position: relative
+    }
+
+    .mobiSearch:before {
+        content: "快速查询";
+        padding: 4px 1.6em;
+        background-color: #fff;
+        border: 1px solid #2A8FD5;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -44px;
+    }
+
+    .search {
+        display: none;
+        padding: 14px 0 14px 20px
+    }
+
+    .search input[type=text] {
+        width: 200px;
+    }
+
+    .callLog-con-box {
+        height: auto
+    }
+
+    .call-content-title, .call-content-bt > span, .notaryList thead {
+        display: none
+    }
+
+    .search-bt {
+        margin-left: 60px;
+    }
+
+    .call-content {
+        width: 90%;
+        margin: 0 auto;
+        min-width: inherit
+    }
+
+    .call-content-con {
+        height: 450px
+    }
+
+    .call-content tr, .notaryList tbody tr {
+        padding-top: 1em;
+        margin-bottom: 1em;
+        height: auto
+    }
+
+    .call-play span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+    }
+
+    .checkboz, .call-play, .call-type, .hj-no, .hc-no, .ly-ks, .ly-js, .th-time, .th-notary, .notaryList tbody td {
+        width: 100%;
+        display: block;
+        margin-bottom: .8em;
+    }
+
+    .checkboz {
+        margin: 1.4em 0 0 0
+    }
+
+    .call-play:before, .call-type:before, .hj-no:before, .hc-no:before, .ly-ks:before, .ly-js:before, .th-time:before, .th-notary:before, .notaryList tbody td:before {
+        margin-right: 10px;
+        width:72px;
+        display: inline-block;
+        text-align: right;
+        color: #999;
+    }
+
+    .call-play:before {
+        content: "在线播放："
+    }
+
+    .call-type:before {
+        content: "呼叫类型："
+    }
+
+    .hj-no:before {
+        content: "呼入号码："
+    }
+
+    .hc-no:before {
+        content: "呼出号码："
+    }
+
+    .ly-ks:before {
+        content: "录音开始："
+    }
+
+    .ly-js:before {
+        content: "录音结束："
+    }
+
+    .th-time:before {
+        content: "通话时长："
+    }
+
+    .th-notary:before {
+        content: "存证公证处："
+    }
+
+    .call-content-bt {
+        height: auto;
+        padding: 10px
+    }
+
+    .page {
+        margin-right: 0
+    }
+
+    .call-content-bt:after {
+        content: "";
+        display: block;
+        clear: both
+    }
+
+    .notaryList table {
+        border: none;
+        box-shadow: none
+    }
+
+    .notaryList tbody td:first-child {
+        padding: 0;
+        margin-top: 1.4em
+    }
+
+    .notaryList tbody td:nth-child(1):before {
+        content: "申 请 人："
+    }
+
+    .notaryList tbody td:nth-child(2):before {
+        content: "事项说明："
+    }
+
+    .notaryList tbody td:nth-child(3):before {
+        content: "证据数量："
+    }
+
+    .notaryList tbody td:nth-child(4):before {
+        content: "出证公证处："
+    }
+
+    .notaryList tbody td:nth-child(5):before {
+        content: "当前状态："
+    }
+
+    .notaryList tbody td:nth-child(6):before {
+        content: "申请时间："
+    }
+}

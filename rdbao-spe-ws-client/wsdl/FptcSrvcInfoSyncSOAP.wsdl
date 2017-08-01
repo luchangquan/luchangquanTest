@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3-hudson-390-. --><wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ngn.sanss.com/FptcSrvcInfoSync/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FptcSrvcInfoSync" targetNamespace="http://ngn.sanss.com/FptcSrvcInfoSync/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ngn.sanss.com/FptcSrvcInfoSync/">
+
+
+
+
+      <xsd:element name="UserInfoSyncReq" type="tns:UserInfoSyncRequest">
+      </xsd:element>
+      <xsd:element name="UserInfoSyncResp" type="tns:UserInfoSyncResponse">
+      </xsd:element>
+
+      <xsd:complexType name="UserInfoSyncRequest">
+      	<xsd:complexContent>
+      		<xsd:extension base="tns:BasicRequest">
+      			<xsd:sequence>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="OrderId" type="xsd:string">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="UserIDType" type="xsd:int">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="UserName" type="xsd:string">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="UserNumber" type="xsd:string">
+      				</xsd:element>
+      			</xsd:sequence>
+      		</xsd:extension>
+      	</xsd:complexContent>
+      </xsd:complexType>
+
+      <xsd:complexType name="BasicRequest">
+      	<xsd:sequence>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="StreamingNo" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="SrcSystemNo" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="Signature" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="TimeStamp" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="UserInfoSyncResponse">
+      	<xsd:complexContent>
+      		<xsd:extension base="tns:BasicResponse"></xsd:extension>
+      	</xsd:complexContent>
+      </xsd:complexType>
+
+      <xsd:complexType name="BasicResponse">
+      	<xsd:sequence>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="StreamingNo" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="ResultCode" type="xsd:int">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="Description" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SrvcSubscribeReq" type="tns:SrvcSubscribeRequest">
+      </xsd:element>
+      <xsd:element name="SrvcSubscribeResp" type="tns:SrvcSubscribeResponse">
+      </xsd:element>
+
+      <xsd:complexType name="SrvcSubscribeRequest">
+      	<xsd:complexContent>
+      		<xsd:extension base="tns:BasicRequest">
+      			<xsd:sequence>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="ActionType" type="xsd:int">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="OrderId" type="xsd:string">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="UserIDType" type="xsd:int">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="UserNumber" type="xsd:string">
+      				</xsd:element>
+      				<xsd:element maxOccurs="1" minOccurs="1" name="SrvcInfo" type="tns:SrvcInfo">
+      				</xsd:element>
+      			</xsd:sequence>
+      		</xsd:extension>
+      	</xsd:complexContent>
+      </xsd:complexType>
+    
+      <xsd:complexType name="SrvcInfo">
+      	<xsd:sequence>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="SrvcType" type="xsd:int">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="SrvcID" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="unbounded" minOccurs="0" name="VSubProdInfo" type="tns:VSubProdInfo">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="EffDate" type="xsd:string"></xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="ExpDate" type="xsd:string"></xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="IsExperience" type="xsd:int">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="SubscribeType" type="xsd:int"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="VSubProdInfo">
+      	<xsd:sequence>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="VProductID" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="EffDate" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="ExpDate" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="SrvcSubscribeResponse">
+      	<xsd:complexContent>
+      		<xsd:extension base="tns:BasicResponse">
+      			<xsd:sequence>
+      				<xsd:element maxOccurs="unbounded" minOccurs="0" name="ResultInfo" type="tns:ResultInfo">
+      				</xsd:element>
+      			</xsd:sequence>
+      		</xsd:extension>
+      	</xsd:complexContent>
+      </xsd:complexType>
+    
+      <xsd:complexType name="ResultInfo">
+      	<xsd:sequence>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="ProductOfferID" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="ProductOfferName" type="xsd:string">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="OPResult" type="xsd:int">
+      		</xsd:element>
+      		<xsd:element maxOccurs="1" minOccurs="1" name="OPDesc" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+
+            <xsd:element name="SrvcModifyReq" type="tns:SrvcModifyRequest">
+            </xsd:element>
+            <xsd:element name="SrvcModifyResp" type="tns:SrvcModifyResponse">
+            </xsd:element>
+            
+            <xsd:complexType name="SrvcModifyRequest">
+            	<xsd:complexContent>
+            		<xsd:extension base="tns:BasicRequest">
+            			<xsd:sequence>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="OrderId" type="xsd:string">
+            				</xsd:element>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="UserNumber" type="xsd:string">
+            				</xsd:element>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="SrvcID" type="xsd:string">
+            				</xsd:element>
+            				<xsd:element maxOccurs="unbounded" minOccurs="0" name="PropertyList" type="tns:Property">
+            				</xsd:element>
+            			</xsd:sequence>
+            		</xsd:extension>
+            	</xsd:complexContent>
+            </xsd:complexType>
+    
+            <xsd:complexType name="Property">
+            	<xsd:sequence>
+            		<xsd:element maxOccurs="1" minOccurs="1" name="Name" type="xsd:string">
+            		</xsd:element>
+            		<xsd:element maxOccurs="1" minOccurs="1" name="Value" type="xsd:string"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    
+            <xsd:complexType name="SrvcModifyResponse">
+            	<xsd:complexContent>
+            		<xsd:extension base="tns:BasicResponse"></xsd:extension>
+            	</xsd:complexContent>
+            </xsd:complexType>
+
+            <xsd:element name="PrsNumBindReq" type="tns:PrsNumBindRequest">
+            </xsd:element>
+            <xsd:element name="PrsNumBindResp" type="tns:PrsNumBindResponse">
+            </xsd:element>
+            
+            <xsd:complexType name="PrsNumBindRequest">
+            	<xsd:complexContent>
+            		<xsd:extension base="tns:BasicRequest">
+            			<xsd:sequence>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="ActionType" type="xsd:int">
+            				</xsd:element>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="UserNumber" type="xsd:string">
+            				</xsd:element>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="BizNumber" type="xsd:string">
+            				</xsd:element>
+            				<xsd:element maxOccurs="1" minOccurs="1" name="ProductId" type="xsd:string">
+            				</xsd:element>
+            			</xsd:sequence>
+            		</xsd:extension>
+            	</xsd:complexContent>
+            </xsd:complexType>
+    
+            <xsd:complexType name="PrsNumBindResponse">
+            	<xsd:complexContent>
+            		<xsd:extension base="tns:BasicResponse"></xsd:extension>
+            	</xsd:complexContent>
+            </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UserInfoSyncInputMessage">
+  	<wsdl:part element="tns:UserInfoSyncReq" name="InputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UserInfoSyncOutputMessage">
+  	<wsdl:part element="tns:UserInfoSyncResp" name="OutputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SrvcSubscribeInputMessage">
+  	<wsdl:part element="tns:SrvcSubscribeReq" name="InputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SrvcSubscribeOutputMessage">
+  	<wsdl:part element="tns:SrvcSubscribeResp" name="OutputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SrvcModifyInputMessage">
+  	<wsdl:part element="tns:SrvcModifyReq" name="InputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SrvcModifyOutputMessage">
+  	<wsdl:part element="tns:SrvcModifyResp" name="OutputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PrsNumBindInputMessage">
+  	<wsdl:part element="tns:PrsNumBindReq" name="InputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PrsNumBindOutputMessage">
+  	<wsdl:part element="tns:PrsNumBindResp" name="OutputParams"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="FptcSrvcInfoSync">
+    <wsdl:operation name="UserInfoSync">
+      <wsdl:input message="tns:UserInfoSyncInputMessage" name="UserInfoSyncInput"></wsdl:input>
+      <wsdl:output message="tns:UserInfoSyncOutputMessage" name="UserInfoSyncOutput"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SrvcSubscribe">
+    	<wsdl:input message="tns:SrvcSubscribeInputMessage" name="SrvcSubscribeInput"></wsdl:input>
+    	<wsdl:output message="tns:SrvcSubscribeOutputMessage" name="SrvcSubscribeOutput"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SrvcModify">
+    	<wsdl:input message="tns:SrvcModifyInputMessage" name="SrvcModifyInput"></wsdl:input>
+    	<wsdl:output message="tns:SrvcModifyOutputMessage" name="SrvcModifyOutput"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrsNumBind">
+    	<wsdl:input message="tns:PrsNumBindInputMessage" name="PrsNumBindInput"></wsdl:input>
+    	<wsdl:output message="tns:PrsNumBindOutputMessage" name="PrsNumBindOutput"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FptcSrvcInfoSyncSOAP" type="tns:FptcSrvcInfoSync">
+  	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+  	<wsdl:operation name="UserInfoSync">
+  		<soap:operation soapAction="http://ngn.sanss.com/FptcSrvcInfoSync/UserInfoSync"></soap:operation>
+  		<wsdl:input name="UserInfoSyncInput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:input>
+  		<wsdl:output name="UserInfoSyncOutput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="SrvcSubscribe">
+  		<soap:operation soapAction="http://ngn.sanss.com/FptcSrvcInfoSync/SrvcSubscribe"></soap:operation>
+  		<wsdl:input name="SrvcSubscribeInput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:input>
+  		<wsdl:output name="SrvcSubscribeOutput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="SrvcModify">
+  		<soap:operation soapAction="http://ngn.sanss.com/FptcSrvcInfoSync/SrvcModify"></soap:operation>
+  		<wsdl:input name="SrvcModifyInput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:input>
+  		<wsdl:output name="SrvcModifyOutput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="PrsNumBind">
+  		<soap:operation soapAction="http://ngn.sanss.com/FptcSrvcInfoSync/PrsNumBind"></soap:operation>
+  		<wsdl:input name="PrsNumBindInput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:input>
+  		<wsdl:output name="PrsNumBindOutput">
+  			<soap:body use="literal"></soap:body>
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FptcSrvcInfoSync">
+    <wsdl:port binding="tns:FptcSrvcInfoSyncSOAP" name="FptcSrvcInfoSyncSOAP">
+      <soap:address location="http://101.95.49.32:80/FptcSrvcInfoSync/FptcSrvcInfoSyncSOAP"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
